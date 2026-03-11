@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Muhammad Shaban — SMB Account Executive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#0c0c0a;--bg2:#111110;--surface:#181815;--amber:#e8a020;--amber-dim:#a87010;--white:#f0ede6;--muted:#7a7870;--border:#2a2a26;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--white);font-family:'Syne',sans-serif;overflow-x:hidden;cursor:none;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.35;}
+.cursor{width:10px;height:10px;background:var(--amber);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference;}
+.cursor-ring{width:36px;height:36px;border:1.5px solid var(--amber);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s;opacity:.5;}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 3rem;border-bottom:1px solid transparent;transition:border-color .3s,background .3s;}
+nav.scrolled{background:rgba(12,12,10,.92);border-color:var(--border);backdrop-filter:blur(12px);}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.08em;color:var(--amber);text-decoration:none;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--white);}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:8rem 3rem 4rem;position:relative;gap:4rem;}
+.hero-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem;opacity:0;animation:fadeUp .8s .2s forwards;}
+.hero-eyebrow::before{content:'';display:inline-block;width:2rem;height:1px;background:var(--amber);}
+.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,8vw,9rem);line-height:.9;letter-spacing:.02em;color:var(--white);opacity:0;animation:fadeUp .8s .4s forwards;}
+.hero-title{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(1.2rem,2.5vw,1.8rem);color:var(--muted);margin-top:1rem;opacity:0;animation:fadeUp .8s .6s forwards;}
+.hero-desc{margin-top:1.5rem;font-size:.95rem;line-height:1.7;color:var(--muted);max-width:480px;opacity:0;animation:fadeUp .8s .8s forwards;}
+.hero-actions{margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .8s 1s forwards;}
+.btn-primary{background:var(--amber);color:var(--bg);border:none;padding:.85rem 2rem;font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;cursor:none;text-decoration:none;display:inline-block;transition:background .2s,transform .2s;font-weight:500;}
+.btn-primary:hover{background:#f0b840;transform:translateY(-2px);}
+.btn-ghost{background:transparent;color:var(--white);border:1px solid var(--border);padding:.85rem 2rem;font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;cursor:none;text-decoration:none;display:inline-block;transition:border-color .2s,color .2s;}
+.btn-ghost:hover{border-color:var(--amber);color:var(--amber);}
+.hero-right{display:grid;grid-template-columns:1fr 1fr;gap:1rem;opacity:0;animation:fadeUp .8s .6s forwards;}
+.stat-card{background:var(--surface);border:1px solid var(--border);padding:2rem 1.5rem;position:relative;overflow:hidden;transition:border-color .3s;}
+.stat-card:hover{border-color:var(--amber-dim);}
+.stat-card::after{content:'';position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--amber);transition:width .4s;}
+.stat-card:hover::after{width:100%;}
+.stat-number{font-family:'Bebas Neue',sans-serif;font-size:3.5rem;color:var(--amber);line-height:1;}
+.stat-number .unit{font-size:2rem;}
+.stat-label{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.5rem;line-height:1.4;}
+.stat-card.featured{grid-column:span 2;background:linear-gradient(135deg,#1a1a15,#141410);border-color:var(--amber-dim);}
+.stat-card.featured .stat-number{font-size:5rem;}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fadeUp .8s 1.4s forwards;}
+.scroll-hint::after{content:'';width:1px;height:40px;background:linear-gradient(to bottom,var(--muted),transparent);}
+section{padding:6rem 3rem;position:relative;}
+.section-label{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--amber);margin-bottom:.75rem;display:flex;align-items:center;gap:.75rem;}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.section-heading{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,5vw,5.5rem);line-height:.95;letter-spacing:.02em;margin-bottom:3rem;}
+.exp-grid{display:grid;gap:0;}
+.exp-item{border-top:1px solid var(--border);padding:2.5rem 0;display:grid;grid-template-columns:1fr 2fr 1fr;gap:2rem;align-items:start;position:relative;cursor:default;}
+.exp-item::before{content:'';position:absolute;left:-3rem;right:-3rem;top:0;bottom:0;background:var(--surface);opacity:0;z-index:-1;transition:opacity .3s;}
+.exp-item:hover::before{opacity:1;}
+.exp-item:last-child{border-bottom:1px solid var(--border);}
+.exp-company{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:.04em;color:var(--white);line-height:1;}
+.exp-location{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--muted);letter-spacing:.1em;margin-top:.3rem;}
+.exp-role{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.2rem;color:var(--amber);margin-bottom:.75rem;}
+.exp-desc{font-size:.9rem;line-height:1.7;color:var(--muted);}
+.exp-period{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.08em;color:var(--muted);text-align:right;padding-top:.25rem;}
+.exp-badge{display:inline-block;background:rgba(232,160,32,.12);border:1px solid rgba(232,160,32,.3);color:var(--amber);font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .5rem;margin-top:.5rem;}
+.skills-section{background:var(--bg2);}
+.skills-layout{display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:start;}
+.skills-intro{font-family:'DM Serif Display',serif;font-size:1.4rem;line-height:1.5;color:var(--muted);font-style:italic;}
+.skills-intro strong{color:var(--white);font-style:normal;}
+.tools-grid{display:flex;flex-wrap:wrap;gap:.6rem;}
+.tool-tag{background:var(--surface);border:1px solid var(--border);padding:.5rem 1rem;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;transition:border-color .2s,color .2s,background .2s;cursor:default;}
+.tool-tag:hover{border-color:var(--amber);color:var(--amber);background:rgba(232,160,32,.06);}
+.skill-cat-label{font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem;}
+.skill-pills{display:flex;flex-wrap:wrap;gap:.5rem;}
+.skill-pill{background:rgba(255,255,255,.04);border:1px solid var(--border);padding:.35rem .75rem;font-size:.8rem;color:var(--white);transition:all .2s;cursor:default;}
+.skill-pill:hover{border-color:var(--amber-dim);background:rgba(232,160,32,.05);}
+.case-study{background:var(--bg);}
+.case-layout{display:grid;grid-template-columns:1fr 2.5fr;gap:5rem;align-items:start;}
+.case-sidebar{position:sticky;top:7rem;}
+.case-sidebar-title{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.3rem;color:var(--muted);line-height:1.6;margin-bottom:2rem;}
+.case-sidebar-title strong{color:var(--white);font-style:normal;}
+.case-meta{display:grid;gap:1rem;}
+.case-meta-item{border-left:2px solid var(--amber-dim);padding-left:1rem;}
+.case-meta-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem;}
+.case-meta-value{font-size:.88rem;color:var(--white);}
+.process-timeline{position:relative;}
+.process-timeline::before{content:'';position:absolute;left:18px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--amber),var(--amber-dim),transparent);}
+.process-step{display:grid;grid-template-columns:36px 1fr;gap:1.5rem;position:relative;opacity:0;transform:translateX(-20px);transition:opacity .5s ease,transform .5s ease;}
+.process-step.visible{opacity:1;transform:translateX(0);}
+.step-node{width:36px;height:36px;border:1px solid var(--amber-dim);background:var(--bg);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--amber);flex-shrink:0;position:relative;z-index:1;transition:background .3s,color .3s;}
+.process-step:hover .step-node{background:var(--amber);color:var(--bg);}
+.step-body{background:var(--surface);border:1px solid var(--border);padding:1.75rem 2rem;margin-bottom:1rem;transition:border-color .3s;position:relative;overflow:hidden;}
+.step-body::after{content:'';position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--amber);transition:width .4s;}
+.process-step:hover .step-body{border-color:var(--amber-dim);}
+.process-step:hover .step-body::after{width:100%;}
+.step-phase{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem;}
+.step-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--white);margin-bottom:.75rem;}
+.step-desc{font-size:.88rem;line-height:2;color:var(--muted);}
+.step-desc strong{color:var(--white);}
+.step-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.75rem;}
+.step-tag{background:rgba(232,160,32,.08);border:1px solid rgba(232,160,32,.2);color:var(--amber);font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .5rem;}
+.sequence-flow{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;margin-top:.75rem;}
+.seq-item{background:var(--bg2);border:1px solid var(--border);padding:.4rem .8rem;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--white);white-space:nowrap;}
+.seq-arrow{color:var(--amber);font-size:.9rem;flex-shrink:0;}
+.edu-lead{background:var(--bg2);}
+.edu-lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;}
+.edu-card{border:1px solid var(--border);padding:2.5rem;position:relative;overflow:hidden;transition:border-color .3s;}
+.edu-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--amber),transparent);}
+.edu-card:hover{border-color:var(--amber-dim);}
+.edu-card-label{font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:1.5rem;}
+.edu-uni{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--white);line-height:1.1;margin-bottom:.5rem;}
+.edu-degree{font-family:'DM Serif Display',serif;font-style:italic;font-size:1rem;color:var(--muted);margin-bottom:.4rem;}
+.edu-date{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--amber);letter-spacing:.08em;}
+.lead-items{display:grid;gap:1.5rem;}
+.lead-item{padding:1.5rem;background:var(--surface);border:1px solid var(--border);transition:border-color .3s;}
+.lead-item:hover{border-color:var(--amber-dim);}
+.lead-role{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--white);margin-bottom:.25rem;}
+.lead-org{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--amber);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem;}
+.lead-desc{font-size:.85rem;color:var(--muted);line-height:1.6;}
+.contact-section{background:var(--surface);border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.contact-sub{font-size:.95rem;color:var(--muted);line-height:1.7;margin-bottom:2rem;}
+.contact-links{display:flex;flex-direction:column;gap:1rem;}
+.contact-link{display:flex;align-items:center;gap:1rem;text-decoration:none;padding:1rem 1.5rem;border:1px solid var(--border);transition:border-color .2s,background .2s;}
+.contact-link:hover{border-color:var(--amber);background:rgba(232,160,32,.04);}
+.contact-link-icon{width:36px;height:36px;background:rgba(232,160,32,.1);border:1px solid rgba(232,160,32,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;}
+.contact-link-text{display:flex;flex-direction:column;}
+.contact-link-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
+.contact-link-value{font-size:.9rem;color:var(--white);margin-top:.15rem;}
+footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center;}
+footer .mono{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:var(--muted);}
+footer .mono span{color:var(--amber);}
+.marquee-section{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.2rem 0;background:var(--bg2);}
+.marquee-track{display:flex;width:max-content;animation:marquee 28s linear infinite;}
+.marquee-item{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.1em;color:var(--muted);padding:0 2rem;white-space:nowrap;}
+.marquee-item span{color:var(--amber);margin-right:.5rem;}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:.1s;}
+.reveal-delay-2{transition-delay:.2s;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:7rem 1.5rem 4rem;gap:3rem;}
+  .hero-right{grid-template-columns:1fr 1fr;}
+  .stat-card.featured{grid-column:span 2;}
+  section{padding:4rem 1.5rem;}
+  nav{padding:1.2rem 1.5rem;}
+  .nav-links{gap:1rem;}
+  .exp-item{grid-template-columns:1fr;gap:.5rem;}
+  .exp-period{text-align:left;}
+  .skills-layout{grid-template-columns:1fr;gap:2.5rem;}
+  .edu-lead-grid{grid-template-columns:1fr;gap:2rem;}
+  .case-layout{grid-template-columns:1fr;gap:2.5rem;}
+  .case-sidebar{position:static;}
+  .contact-section{grid-template-columns:1fr;}
+  footer{flex-direction:column;gap:.5rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<nav id="nav">
+  <a href="#" class="nav-logo">MS.</a>
+  <ul class="nav-links">
+    <li><a href="#experience">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#casestudy">Playbook</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">SMB Account Executive · Open to Remote</div>
+    <h1 class="hero-name">Muhammad<br>Shaban</h1>
+    <p class="hero-title">Full-Cycle Sales &amp; Pipeline Builder</p>
+    <p class="hero-desc">2 years closing deals across B2C, B2B, and enterprise. SaaS-focused. Outbound-heavy. Numbers-driven. Based in Islamabad — selling everywhere.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get In Touch</a>
+      <a href="https://linkedin.com/in/shab0n" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-card featured">
+      <div class="stat-number"><span class="counter" data-target="66">0</span><span class="unit">%</span></div>
+      <div class="stat-label">Conversation-to-Meeting Conversion Rate</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number"><span class="counter" data-target="2">0</span><span class="unit">yr</span></div>
+      <div class="stat-label">Full-Cycle Sales Experience</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number"><span class="counter" data-target="380">0</span><span class="unit">+</span></div>
+      <div class="stat-label">Calls/Day Peak Volume</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number"><span class="counter" data-target="11">0</span><span class="unit">k+</span></div>
+      <div class="stat-label">LinkedIn Network Leveraged</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number"><span class="counter" data-target="5">0</span><span class="unit">%</span></div>
+      <div class="stat-label">LinkedIn Network to Meeting Rate</div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item"><span>·</span>HubSpot</div>
+    <div class="marquee-item"><span>·</span>Salesforce</div>
+    <div class="marquee-item"><span>·</span>Zoho CRM</div>
+    <div class="marquee-item"><span>·</span>Apollo AI</div>
+    <div class="marquee-item"><span>·</span>LinkedIn Sales Navigator</div>
+    <div class="marquee-item"><span>·</span>Lusha</div>
+    <div class="marquee-item"><span>·</span>Outreach</div>
+    <div class="marquee-item"><span>·</span>Drippify</div>
+    <div class="marquee-item"><span>·</span>Full-Cycle Sales</div>
+    <div class="marquee-item"><span>·</span>Cold Calling</div>
+    <div class="marquee-item"><span>·</span>SaaS</div>
+    <div class="marquee-item"><span>·</span>Pipeline Management</div>
+    <div class="marquee-item"><span>·</span>C-Suite Engagement</div>
+    <div class="marquee-item"><span>·</span>HubSpot</div>
+    <div class="marquee-item"><span>·</span>Salesforce</div>
+    <div class="marquee-item"><span>·</span>Zoho CRM</div>
+    <div class="marquee-item"><span>·</span>Apollo AI</div>
+    <div class="marquee-item"><span>·</span>LinkedIn Sales Navigator</div>
+    <div class="marquee-item"><span>·</span>Lusha</div>
+    <div class="marquee-item"><span>·</span>Outreach</div>
+    <div class="marquee-item"><span>·</span>Drippify</div>
+    <div class="marquee-item"><span>·</span>Full-Cycle Sales</div>
+    <div class="marquee-item"><span>·</span>Cold Calling</div>
+    <div class="marquee-item"><span>·</span>SaaS</div>
+    <div class="marquee-item"><span>·</span>Pipeline Management</div>
+    <div class="marquee-item"><span>·</span>C-Suite Engagement</div>
+  </div>
+</div>
+<section id="experience" style="background:var(--bg);">
+  <div class="section-label">Work History</div>
+  <h2 class="section-heading reveal">Experience</h2>
+  <div class="exp-grid">
+    <div class="exp-item reveal">
+      <div>
+        <div class="exp-company">Remotir<br>Limited</div>
+        <div class="exp-location">London, UK · Remote</div>
+        <div class="exp-badge">Current</div>
+      </div>
+      <div>
+        <div class="exp-role">SMB Account Executive</div>
+        <div class="exp-desc"><strong style="color:var(--white)">Founding SDR and first quota-carrying AE</strong> on two parallel accounts (inbound + outbound). Running automation-focused SaaS campaigns with ownership of the full sales cycle — from discovery to close. Built the outbound motion from scratch.</div>
+      </div>
+      <div class="exp-period">May 2025<br>— Present</div>
+    </div>
+    <div class="exp-item reveal reveal-delay-1">
+      <div>
+        <div class="exp-company">AMBE<br>Engineering</div>
+        <div class="exp-location">Farmington Hills, MI · Remote</div>
+      </div>
+      <div>
+        <div class="exp-role">Business Development Associate</div>
+        <div class="exp-desc">Leveraged an 11,000+ LinkedIn network spanning 4 executives to drive re-engagement campaigns. Achieved <strong style="color:var(--white)">5% conversion</strong> to booked meetings through targeted outreach of past customers and warm connections, contributing directly to ARR pipeline growth.</div>
+      </div>
+      <div class="exp-period">Apr 2024<br>— Apr 2025</div>
+    </div>
+    <div class="exp-item reveal reveal-delay-2">
+      <div>
+        <div class="exp-company">Karvel<br>Consulting</div>
+        <div class="exp-location">Islamabad, PK · Remote</div>
+      </div>
+      <div>
+        <div class="exp-role">Sales Development Representative</div>
+        <div class="exp-desc">Managed high-volume outbound calling (<strong style="color:var(--white)">200–380 calls/day</strong>), delivering a <strong style="color:var(--white)">66% conversation-to-meeting</strong> conversion rate. Consistently exceeded quota through disciplined discovery, qualification, and pipeline forecasting.</div>
+      </div>
+      <div class="exp-period">Jan 2024<br>— Apr 2025</div>
+    </div>
+  </div>
+</section>
+<section class="skills-section" id="skills">
+  <div class="section-label">Capabilities</div>
+  <h2 class="section-heading reveal">Skills &amp;<br>Tools</h2>
+  <div class="skills-layout">
+    <div class="reveal">
+      <p class="skills-intro">Built for <strong>outbound-heavy, high-velocity</strong> sales environments. Comfortable owning the full funnel — from cold list to closed-won.</p>
+      <div style="margin-top:2.5rem;">
+        <div class="skill-cat-label">Core Sales Skills</div>
+        <div class="skill-pills">
+          <div class="skill-pill">B2B SaaS Sales</div>
+          <div class="skill-pill">Cold Calling</div>
+          <div class="skill-pill">Discovery Calls</div>
+          <div class="skill-pill">Closing</div>
+          <div class="skill-pill">Full Sales Cycle</div>
+          <div class="skill-pill">C-Suite Engagement</div>
+          <div class="skill-pill">Pipeline Forecasting</div>
+          <div class="skill-pill">Lead Generation</div>
+          <div class="skill-pill">Quota Attainment</div>
+          <div class="skill-pill">Network Re-engagement</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="skill-cat-label" style="margin-bottom:.8rem;">Tech Stack</div>
+      <div class="tools-grid">
+        <div class="tool-tag">Zoho CRM</div>
+        <div class="tool-tag">HubSpot</div>
+        <div class="tool-tag">Salesforce</div>
+        <div class="tool-tag">Apollo AI</div>
+        <div class="tool-tag">LinkedIn Sales Navigator</div>
+        <div class="tool-tag">Lusha</div>
+        <div class="tool-tag">Outreach</div>
+        <div class="tool-tag">Drippify</div>
+        <div class="tool-tag">Microsoft Excel</div>
+      </div>
+      <div style="margin-top:2rem;">
+        <div class="skill-cat-label" style="margin-bottom:.8rem;">Other Ventures</div>
+        <div class="skill-pills">
+          <div class="skill-pill">Co-Founded 3D Printing Startup</div>
+          <div class="skill-pill">Startup Pitch Competitor (NUST FICS)</div>
+          <div class="skill-pill">Hydroponic Farming Project</div>
+          <div class="skill-pill">Niche Business Ideas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="case-study" id="casestudy">
+  <div class="section-label">Playbook</div>
+  <h2 class="section-heading reveal">Outbound<br>Strategy</h2>
+  <div class="case-layout">
+    <div class="case-sidebar reveal">
+      <p class="case-sidebar-title">How I build an outbound motion <strong>from zero to pipeline</strong> — documented, tested, and repeatable.</p>
+      <div class="case-meta">
+        <div class="case-meta-item"><div class="case-meta-label">Motion Type</div><div class="case-meta-value">Multi-channel outbound</div></div>
+        <div class="case-meta-item"><div class="case-meta-label">Channels</div><div class="case-meta-value">LinkedIn · Email · Cold Call</div></div>
+        <div class="case-meta-item"><div class="case-meta-label">Tools</div><div class="case-meta-value">Sales Navigator · Apollo · Lusha · Drippify · Outreach</div></div>
+        <div class="case-meta-item"><div class="case-meta-label">Pilot Batch</div><div class="case-meta-value">100 accounts before automation</div></div>
+        <div class="case-meta-item"><div class="case-meta-label">Methodology</div><div class="case-meta-value">Signal-led, ICP-filtered, A/B tested</div></div>
+      </div>
+    </div>
+    <div class="process-timeline">
+      <div class="process-step">
+        <div class="step-node">01</div>
+        <div class="step-body">
+          <div class="step-phase">Day 1–2 · Discovery</div>
+          <div class="step-title">Product Deep-Dive &amp; Documentation</div>
+          <div class="step-desc">First 24 hours go entirely to understanding the product. I document the <strong>MVP</strong> and <strong>USP</strong> — what problem it solves, who it's built for, and what makes it defensible. No outreach starts before I can articulate value in one sentence.</div>
+          <div class="step-tags"><span class="step-tag">MVP mapping</span><span class="step-tag">USP documentation</span><span class="step-tag">Value prop clarity</span></div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-node">02</div>
+        <div class="step-body">
+          <div class="step-phase">Week 1 · ICP Development</div>
+          <div class="step-title">Build the ICP with Marketing</div>
+          <div class="step-desc">Collaborate with marketing to develop an <strong>Ideal Customer Profile</strong> — firmographics, technographics, buying triggers, and persona pain points. Cross-referenced against existing customer data to validate assumptions before locking it in.</div>
+          <div class="step-tags"><span class="step-tag">Firmographics</span><span class="step-tag">Persona pain points</span><span class="step-tag">Cross-functional</span></div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-node">03</div>
+        <div class="step-body">
+          <div class="step-phase">Week 1 · Refinement</div>
+          <div class="step-title">AI-Assisted ICP Filtering</div>
+          <div class="step-desc">Run the documented ICP through AI to tighten filtering criteria — removing noise, surfacing edge cases, and pressure-testing the profile against real-world account data. Output is a <strong>sharper, more precise ICP</strong> ready for tooling.</div>
+          <div class="step-tags"><span class="step-tag">AI filtering</span><span class="step-tag">Criteria refinement</span><span class="step-tag">Signal validation</span></div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-node">04</div>
+        <div class="step-body">
+          <div class="step-phase">Week 1–2 · List Building</div>
+          <div class="step-title">Sales Navigator — Saved Searches &amp; Lead Lists</div>
+          <div class="step-desc">Apply the refined ICP directly into <strong>LinkedIn Sales Navigator</strong> using boolean filters, job title targeting, company size, tech stack, and growth signals. Build saved searches for a continuous feed and export an initial draft lead list for pilot testing.</div>
+          <div class="step-tags"><span class="step-tag">Sales Navigator</span><span class="step-tag">Boolean search</span><span class="step-tag">Saved searches</span><span class="step-tag">Lead list</span></div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-node">05</div>
+        <div class="step-body">
+          <div class="step-phase">Week 2 · Account Research</div>
+          <div class="step-title">Signal Audit — First 100 Accounts</div>
+          <div class="step-desc">The first 100 accounts get individually researched — no spray-and-pray. Pull <strong>buying signals</strong> from Sales Navigator (job changes, growth, content activity) and cross-reference with <strong>10-K filings</strong> via Companies House UK or SEC for enterprise targets. Context drives relevance.</div>
+          <div class="step-tags"><span class="step-tag">Account signals</span><span class="step-tag">10-K research</span><span class="step-tag">Companies House</span><span class="step-tag">Intent data</span></div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-node">06</div>
+        <div class="step-body">
+          <div class="step-phase">Week 2 · Messaging</div>
+          <div class="step-title">Draft Copy &amp; A/B Test Messaging</div>
+          <div class="step-desc">Develop <strong>A/B variants</strong> for each touchpoint — subject lines, opening lines, CTAs. Test against the pilot batch, track reply rates and positive sentiment, and iterate fast. No message gets scaled until proven at small batch level.</div>
+          <div class="step-tags"><span class="step-tag">A/B testing</span><span class="step-tag">Copywriting</span><span class="step-tag">CTA testing</span><span class="step-tag">Reply rate tracking</span></div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-node">07</div>
+        <div class="step-body">
+          <div class="step-phase">Week 2–3 · Manual Execution</div>
+          <div class="step-title">Ship the First 100–150 Manually</div>
+          <div class="step-desc">Before any automation, the first <strong>100–150 touches go out manually</strong>. This forces quality control, surfaces friction in messaging, and builds genuine signal on what lands. Automation is earned — not assumed. Only after this phase is finalized does the sequence get templated.</div>
+          <div class="step-tags"><span class="step-tag">Manual send</span><span class="step-tag">Quality control</span><span class="step-tag">Message refinement</span></div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-node">08</div>
+        <div class="step-body">
+          <div class="step-phase">Week 3+ · Scale</div>
+          <div class="step-title">Automate with Drippify · Extract Emails via Lusha</div>
+          <div class="step-desc">Once messaging is validated, use <strong>Drippify</strong> to automate sequences at scale and <strong>Lusha</strong> to extract verified contact emails for multi-channel reach. Automation runs while I focus on replies, live calls, and active pipeline management.</div>
+          <div class="step-tags"><span class="step-tag">Drippify</span><span class="step-tag">Lusha</span><span class="step-tag">Sequence automation</span><span class="step-tag">Email extraction</span></div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-node">09</div>
+        <div class="step-body">
+          <div class="step-phase">Ongoing · Multi-Touch Cadence</div>
+          <div class="step-title">The Full Sequence</div>
+          <div class="step-desc">Every prospect goes through a <strong>structured multi-channel cadence</strong>. Each step is deliberate — no spam, no generic follow-ups. Timing, channel order, and messaging are continuously adjusted based on engagement data.</div>
+          <div class="sequence-flow">
+            <div class="seq-item">LinkedIn Connect + Email 1</div>
+            <div class="seq-arrow">→</div>
+            <div class="seq-item">LinkedIn Bridge + Email 2</div>
+            <div class="seq-arrow">→</div>
+            <div class="seq-item">Cold Call</div>
+            <div class="seq-arrow">→</div>
+            <div class="seq-item">LinkedIn DM + Email 3</div>
+          </div>
+          <div class="step-tags" style="margin-top:1rem;"><span class="step-tag">LinkedIn</span><span class="step-tag">Cold calling</span><span class="step-tag">Email cadence</span><span class="step-tag">Multi-touch</span><span class="step-tag">Iteration</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="edu-lead" id="education">
+  <div class="section-label">Background</div>
+  <h2 class="section-heading reveal">Education &amp;<br>Leadership</h2>
+  <div class="edu-lead-grid">
+    <div>
+      <div class="edu-card reveal">
+        <div class="edu-card-label">Degree</div>
+        <div class="edu-uni">COMSATS University Islamabad</div>
+        <div class="edu-degree">BS Business Administration</div>
+        <div class="edu-degree" style="font-size:.85rem;margin-top:.1rem;">Major: Accounting &amp; Finance</div>
+        <div class="edu-date" style="margin-top:1rem;">Graduating June 2026</div>
+      </div>
+    </div>
+    <div>
+      <div class="lead-items">
+        <div class="lead-item reveal">
+          <div class="lead-role">Marketing Team Lead</div>
+          <div class="lead-org">COMSATS Media Club (CMC)</div>
+          <div class="lead-desc">Led marketing campaigns, coordinated outreach, and drove engagement strategies for the university society. Oct 2024 – Apr 2025</div>
+        </div>
+        <div class="lead-item reveal reveal-delay-1">
+          <div class="lead-role">Startup Pitch Competitor</div>
+          <div class="lead-org">NUST · FICS 2024</div>
+          <div class="lead-desc">Presented 2 eco-friendly startup ideas. Advanced a hydroponic farming project through the competition. Apr – Aug 2024</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="contact-section" id="contact">
+  <div class="contact-left">
+    <div class="section-label">Let's Talk</div>
+    <h2 class="section-heading reveal">Get In<br>Touch</h2>
+    <p class="contact-sub">Open to remote AE roles, SDR leadership, or SaaS sales positions. Based in Islamabad — available across time zones.</p>
+    <a href="mailto:m.shaban.idreesi@gmail.com" class="btn-primary">Send an Email ↗</a>
+  </div>
+  <div class="contact-right reveal reveal-delay-1">
+    <div class="contact-links">
+      <a href="mailto:m.shaban.idreesi@gmail.com" class="contact-link">
+        <div class="contact-link-icon">✉</div>
+        <div class="contact-link-text"><span class="contact-link-label">Email</span><span class="contact-link-value">m.shaban.idreesi@gmail.com</span></div>
+      </a>
+      <a href="https://linkedin.com/in/shab0n" target="_blank" class="contact-link">
+        <div class="contact-link-icon">in</div>
+        <div class="contact-link-text"><span class="contact-link-label">LinkedIn</span><span class="contact-link-value">linkedin.com/in/shab0n</span></div>
+      </a>
+      <a href="tel:+923225201380" class="contact-link">
+        <div class="contact-link-icon">☏</div>
+        <div class="contact-link-text"><span class="contact-link-label">Phone / WhatsApp</span><span class="contact-link-value">+92 322 5201380</span></div>
+      </a>
+      <div class="contact-link" style="cursor:default;">
+        <div class="contact-link-icon">⌖</div>
+        <div class="contact-link-text"><span class="contact-link-label">Location</span><span class="contact-link-value">Islamabad, PK · Open to Remote</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <span class="mono">© 2025 <span>Muhammad Shaban</span></span>
+  <span class="mono">SMB AE · <span>Open to Remote</span></span>
+  <span class="mono">Built with intent.</span>
+</footer>
+<script>
+var cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing'),mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;});
+(function animC(){cursor.style.left=mx+'px';cursor.style.top=my+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animC);})();
+document.querySelectorAll('a,button,.stat-card,.exp-item').forEach(function(el){
+  el.addEventListener('mouseenter',function(){cursor.style.width='16px';cursor.style.height='16px';ring.style.width='52px';ring.style.height='52px';ring.style.opacity='0.9';});
+  el.addEventListener('mouseleave',function(){cursor.style.width='10px';cursor.style.height='10px';ring.style.width='36px';ring.style.height='36px';ring.style.opacity='0.5';});
+});
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);});
+var revObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){revObs.observe(el);});
+var stepObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');stepObs.unobserve(e.target);}});},{threshold:.15});
+document.querySelectorAll('.process-step').forEach(function(el,i){el.style.transitionDelay=(i*.07)+'s';stepObs.observe(el);});
+function animCounter(el,target){var start=null;(function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/1400,1),ease=1-Math.pow(1-p,3);el.textContent=Math.floor(ease*target);if(p<1)requestAnimationFrame(step);else el.textContent=target;})(performance.now());}
+var cntObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){animCounter(e.target,parseInt(e.target.dataset.target));cntObs.unobserve(e.target);}});},{threshold:.5});
+document.querySelectorAll('.counter').forEach(function(el){cntObs.observe(el);});
+</script>
+</body>
+</html>
