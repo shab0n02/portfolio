@@ -61,7 +61,7 @@ nav.scrolled{background:rgba(12,12,10,.92);border-color:var(--border);backdrop-f
 .hero-eyebrow::before{content:'';display:inline-block;width:0;height:1px;background:var(--amber);animation:lineGrow .6s cubic-bezier(.23,1,.32,1) .5s forwards;}
 @keyframes slideReveal{to{clip-path:inset(0 0% 0 0);}}
 @keyframes lineGrow{to{width:2rem;}}
-.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,7vw,9rem);line-height:.9;letter-spacing:.02em;color:var(--white);}
+.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5.2vw,7rem);line-height:.9;letter-spacing:.02em;color:var(--white);white-space:nowrap;}
 .hero-name .char{display:inline-block;opacity:0;transform:translateY(60px) rotate(3deg);animation:charIn .55s cubic-bezier(.23,1,.32,1) forwards;}
 .hero-name .space{display:inline-block;width:.25em;}
 @keyframes charIn{to{opacity:1;transform:translateY(0) rotate(0deg);}}
@@ -228,6 +228,7 @@ footer .mono span{color:var(--amber);}
 @media(max-width:900px){
   .hero{grid-template-columns:1fr;padding:6.5rem 1.5rem 3rem;gap:2.5rem;}
   .hero::after{display:none;}
+  .hero-name{white-space:normal;}
   .hero-right{grid-template-columns:1fr 1fr;}
   .stat-card.featured{grid-column:span 2;}
   section{padding:3.5rem 1.5rem;}
@@ -326,13 +327,12 @@ footer .mono span{color:var(--amber);}
       <div>
         <div class="exp-company">Remotir Limited</div>
         <div class="exp-location">London, UK · Remote</div>
-        <div class="exp-badge">Current</div>
       </div>
       <div>
         <div class="exp-role">SMB Account Executive</div>
         <div class="exp-desc"><strong style="color:var(--white)">Founding SDR and first quota-carrying AE</strong> on two parallel accounts (inbound + outbound). Running automation-focused SaaS campaigns with ownership of the full sales cycle — from discovery to close. Built the outbound motion from scratch.</div>
       </div>
-      <div class="exp-period">May 2025<br>— Present</div>
+      <div class="exp-period">May 2025<br>— Feb 2026</div>
     </div>
     <div class="exp-item reveal reveal-delay-1">
       <div>
@@ -452,39 +452,30 @@ footer .mono span{color:var(--amber);}
   </div>
   <div class="contact-right reveal reveal-delay-1">
     <div class="contact-links">
-
-      <!-- LinkedIn -->
       <a href="https://linkedin.com/in/shab0n" target="_blank" rel="noopener" class="contact-link">
         <div class="contact-icon" style="background:#0a66c2;border-color:#0a66c2;">
           <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </div>
         <div class="contact-link-text"><span class="contact-link-label">LinkedIn</span><span class="contact-link-value">linkedin.com/in/shab0n</span></div>
       </a>
-
-      <!-- Email -->
       <a href="mailto:m.shaban.idreesi@gmail.com" class="contact-link">
         <div class="contact-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="#e8a020" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
         </div>
         <div class="contact-link-text"><span class="contact-link-label">Email</span><span class="contact-link-value">m.shaban.idreesi@gmail.com</span></div>
       </a>
-
-      <!-- WhatsApp -->
       <a href="https://wa.me/923225201380" target="_blank" rel="noopener" class="contact-link">
         <div class="contact-icon" style="background:#25d366;border-color:#25d366;">
           <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </div>
         <div class="contact-link-text"><span class="contact-link-label">WhatsApp</span><span class="contact-link-value">+92 322 5201380</span></div>
       </a>
-
-      <!-- Location -->
       <div class="contact-link" style="cursor:default;">
         <div class="contact-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="#e8a020" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
         </div>
         <div class="contact-link-text"><span class="contact-link-label">Location</span><span class="contact-link-value">Islamabad, PK · Open to Remote</span></div>
       </div>
-
     </div>
   </div>
 </section>
@@ -495,7 +486,6 @@ footer .mono span{color:var(--amber);}
   <span class="mono">Built with intent.</span>
 </footer>
 <script>
-// Split hero name into animated chars
 (function(){
   var el=document.getElementById('heroName');
   var text=el.textContent;
@@ -507,7 +497,6 @@ footer .mono span{color:var(--amber);}
   el.innerHTML=html;
 })();
 
-// Cursor (desktop only)
 var cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
 if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
   var mx=0,my=0,rx=0,ry=0;
@@ -519,7 +508,6 @@ if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
   });
 }
 
-// Mobile hamburger menu
 var burger=document.getElementById('burger'),menu=document.getElementById('mobileMenu');
 burger.addEventListener('click',function(){
   burger.classList.toggle('open');
@@ -532,18 +520,15 @@ document.querySelectorAll('.mm-link').forEach(function(a){
   });
 });
 
-// Nav scroll
 window.addEventListener('scroll',function(){
   document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
 },{passive:true});
 
-// Reveal on scroll
 var revObs=new IntersectionObserver(function(entries){
   entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});
 },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(function(el){revObs.observe(el);});
 
-// Section headings clip-path wipe
 var style=document.createElement('style');
 style.textContent='@keyframes headWipe{from{opacity:0;clip-path:inset(0 100% 0 0)}to{opacity:1;clip-path:inset(0 0% 0 0)}}';
 document.head.appendChild(style);
@@ -552,7 +537,6 @@ var headObs=new IntersectionObserver(function(entries){
 },{threshold:.15});
 document.querySelectorAll('.section-heading').forEach(function(el){headObs.observe(el);});
 
-// Playbook steps staggered
 var stepObs=new IntersectionObserver(function(entries){
   entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');stepObs.unobserve(e.target);}});
 },{threshold:.1,rootMargin:'0px 0px -30px 0px'});
@@ -560,7 +544,6 @@ document.querySelectorAll('.process-step').forEach(function(el,i){
   el.style.transitionDelay=(i*0.07)+'s';stepObs.observe(el);
 });
 
-// Spring counter
 function animCounter(el,target){
   var start=null,dur=1100;
   (function step(ts){
