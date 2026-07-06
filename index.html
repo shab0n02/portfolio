@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Muhammad Shaban — B2B Sales Professional. Full-cycle sales, SaaS, outbound prospecting, and finance-driven revenue growth."/>
-<title>Muhammad Shaban — B2B Sales Professional</title>
+<meta name="description" content="Muhammad Shaban — SMB Account Executive. Full-cycle sales, SaaS, outbound prospecting."/>
+<title>Muhammad Shaban — SMB Account Executive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@400;600;700&display=swap" rel="stylesheet"/>
@@ -12,7 +12,7 @@
 :root{--bg:#0c0c0a;--bg2:#111110;--surface:#181815;--amber:#e8a020;--amber-dim:#a87010;--white:#f0ede6;--muted:#7a7870;--border:#2a2a26;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
-body{background:var(--bg);color:var(--white);font-family:'Syne',sans-serif;overflow-x:hidden;cursor:none;}
+body{background:var(--bg);color:var(--white);font-family:'Syne',sans-serif;line-height:1.6;overflow-x:hidden;cursor:none;}
 @media(max-width:768px){body{cursor:auto;}}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.35;}
 
@@ -78,7 +78,7 @@ nav.scrolled{background:rgba(12,12,10,.92);border-color:var(--border);backdrop-f
 .btn-ghost:hover{border-color:var(--amber);color:var(--amber);background:rgba(232,160,32,.05);}
 @media(max-width:768px){.btn-primary,.btn-ghost{cursor:pointer;}}
 
-.hero-right{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;opacity:0;transform:translateX(30px);animation:fadeSlideR .7s cubic-bezier(.23,1,.32,1) .6s forwards;}
+.hero-right{display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem;opacity:0;transform:translateX(30px);animation:fadeSlideR .7s cubic-bezier(.23,1,.32,1) .6s forwards;}
 @keyframes fadeSlideR{to{opacity:1;transform:translateX(0);}}
 .stat-card{background:var(--surface);border:1px solid var(--border);padding:1.5rem 1.25rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s cubic-bezier(.23,1,.32,1);}
 .stat-card:hover{border-color:var(--amber-dim);transform:translateY(-3px);}
@@ -89,6 +89,7 @@ nav.scrolled{background:rgba(12,12,10,.92);border-color:var(--border);backdrop-f
 .stat-number{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,4vw,3.5rem);color:var(--amber);line-height:1;}
 .stat-number .unit{font-size:60%;}
 .stat-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.4rem;line-height:1.5;}
+.stat-card.featured{background:linear-gradient(135deg,#1c1c17,#141410);border-color:var(--amber-dim);}
 
 .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fadeSlide .6s cubic-bezier(.23,1,.32,1) 1.6s forwards;}
 .scroll-line{width:1px;height:0;background:linear-gradient(to bottom,var(--muted),transparent);animation:scrollGrow 1.2s cubic-bezier(.23,1,.32,1) 2.2s forwards;}
@@ -165,7 +166,7 @@ section{padding:5rem 3rem;position:relative;}
 .process-step:hover .step-body::after{width:100%;}
 .step-phase{font-family:'IBM Plex Mono',monospace;font-size:.57rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:.5rem;}
 .step-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--white);margin-bottom:.65rem;}
-.step-desc{font-size:.86rem;line-height:2;color:var(--muted);}
+.step-desc{font-size:.86rem;line-height:1.75;color:var(--muted);}
 .step-desc strong{color:var(--white);}
 .step-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.7rem;}
 .step-tag{background:rgba(232,160,32,.07);border:1px solid rgba(232,160,32,.18);color:var(--amber);font-family:'IBM Plex Mono',monospace;font-size:.56rem;letter-spacing:.09em;text-transform:uppercase;padding:.18rem .45rem;transition:background .2s,transform .2s cubic-bezier(.23,1,.32,1);}
@@ -176,7 +177,16 @@ section{padding:5rem 3rem;position:relative;}
 .seq-arrow{color:var(--amber);font-size:.85rem;flex-shrink:0;animation:arrowPulse 1.5s ease-in-out infinite;}
 @keyframes arrowPulse{0%,100%{transform:translateX(0);}50%{transform:translateX(3px);}}
 
-/* EDUCATION & CERTIFICATIONS */
+.case-outcome{margin-top:3rem;border:1px solid var(--amber-dim);background:linear-gradient(135deg,#1c1c17,#141410);padding:2rem 2.25rem;}
+.case-outcome-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:1.25rem;}
+.case-outcome-grid{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;}
+.case-outcome-number{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4rem);color:var(--amber);line-height:1;}
+.case-outcome-caption{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:.4rem;max-width:140px;}
+.case-outcome-text{font-size:.9rem;line-height:1.75;color:var(--muted);}
+.case-outcome-text strong{color:var(--white);}
+@media(max-width:900px){.case-outcome-grid{grid-template-columns:1fr;gap:1rem;}}
+
+/* EDUCATION */
 .edu-lead{background:var(--bg2);}
 .edu-lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
 .edu-card{border:1px solid var(--border);padding:2rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s cubic-bezier(.23,1,.32,1);}
@@ -211,6 +221,21 @@ section{padding:5rem 3rem;position:relative;}
 .contact-link-label{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);}
 .contact-link-value{font-size:.88rem;color:var(--white);margin-top:.12rem;}
 
+/* CERTIFICATIONS */
+.certs-section{background:var(--bg);}
+.certs-intro{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(1rem,1.3vw,1.25rem);color:var(--muted);line-height:1.65;margin-bottom:2.5rem;max-width:640px;}
+.certs-intro strong{color:var(--white);font-style:normal;}
+.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.cert-card{border:1px solid var(--border);background:var(--surface);padding:1.5rem 1.5rem 1.35rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s cubic-bezier(.23,1,.32,1);}
+.cert-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--amber),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.23,1,.32,1);}
+.cert-card:hover::before{transform:scaleX(1);}
+.cert-card:hover{border-color:var(--amber-dim);transform:translateY(-3px);}
+.cert-issuer{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:.6rem;}
+.cert-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.92rem;color:var(--white);line-height:1.35;margin-bottom:.5rem;}
+.cert-date{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.06em;}
+@media(max-width:900px){.certs-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.certs-grid{grid-template-columns:1fr;}}
+
 /* FOOTER */
 footer{background:var(--bg);border-top:1px solid var(--border);padding:1.75rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
 footer .mono{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.1em;color:var(--muted);}
@@ -226,7 +251,7 @@ footer .mono span{color:var(--amber);}
 @media(max-width:900px){
   .hero{grid-template-columns:1fr;padding:6.5rem 1.5rem 3rem;gap:2.5rem;}
   .hero::after{display:none;}
-  .hero-right{grid-template-columns:1fr 1fr;}
+  .hero-right{grid-template-columns:repeat(3,1fr);}
   section{padding:3.5rem 1.5rem;}
   .exp-item{grid-template-columns:1fr;gap:.4rem;}
   .exp-item:hover{padding-left:0;}
@@ -241,7 +266,7 @@ footer .mono span{color:var(--amber);}
 }
 @media(max-width:480px){
   .hero-right{grid-template-columns:1fr 1fr;}
-  .stat-card{padding:1.1rem 1rem;}
+  .stat-card{padding:1rem .75rem;}
   .hero-actions{gap:.5rem;}
   .btn-primary,.btn-ghost{padding:.7rem 1.25rem;font-size:.68rem;}
   .sequence-flow{flex-direction:column;align-items:flex-start;}
@@ -259,6 +284,7 @@ footer .mono span{color:var(--amber);}
     <li><a href="#experience">Work</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#casestudy">Playbook</a></li>
+    <li><a href="#certifications">Certifications</a></li>
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -270,13 +296,13 @@ footer .mono span{color:var(--amber);}
   <a href="#experience" class="mm-link">Work</a>
   <a href="#skills" class="mm-link">Skills</a>
   <a href="#casestudy" class="mm-link">Playbook</a>
+  <a href="#certifications" class="mm-link">Certifications</a>
   <a href="#education" class="mm-link">Education</a>
   <a href="#contact" class="mm-link">Contact</a>
 </div>
 
 <section class="hero" id="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">B2B Sales Professional · Outbound GTM Builder</div>
     <h1 class="hero-name" id="heroName">Muhammad Shaban</h1>
     <p class="hero-title">Full-Cycle Sales &amp; Pipeline Builder</p>
     <p class="hero-desc">2.5 years closing deals across B2C, B2B, and enterprise. SaaS-focused. Outbound-heavy. Numbers-driven. Based in Islamabad — selling everywhere.</p>
@@ -286,9 +312,8 @@ footer .mono span{color:var(--amber);}
     </div>
   </div>
   <div class="hero-right">
-    <!-- Perfect 2x2 grid for LinkedIn snapshot -->
-    <div class="stat-card">
-      <div class="stat-number"><span class="counter" data-target="2.5">0</span><span class="unit">yrs</span></div>
+    <div class="stat-card featured">
+      <div class="stat-number"><span class="counter" data-target="2.5" data-decimals="1">0</span><span class="unit">yr</span></div>
       <div class="stat-label">Full-Cycle Sales Experience</div>
     </div>
     <div class="stat-card">
@@ -302,6 +327,10 @@ footer .mono span{color:var(--amber);}
     <div class="stat-card">
       <div class="stat-number"><span class="counter" data-target="11">0</span><span class="unit">k+</span></div>
       <div class="stat-label">LinkedIn Network Leveraged</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number"><span class="counter" data-target="5">0</span><span class="unit">%</span></div>
+      <div class="stat-label">LinkedIn Network to Meeting Rate</div>
     </div>
   </div>
   <div class="scroll-hint">Scroll<div class="scroll-line"></div></div>
@@ -322,8 +351,8 @@ footer .mono span{color:var(--amber);}
         <div class="exp-location">London, UK · Remote</div>
       </div>
       <div>
-        <div class="exp-role">Full-Cycle Sales Professional</div>
-        <div class="exp-desc"><strong style="color:var(--white)">Founding SDR and full-cycle closer</strong> on two parallel accounts (inbound + outbound). Running automation-focused SaaS campaigns with ownership of the full sales cycle — from discovery to close. Built the outbound motion from scratch.</div>
+        <div class="exp-role">SMB Account Executive</div>
+        <div class="exp-desc"><strong style="color:var(--white)">Founding SDR and first quota-carrying AE</strong> on two parallel accounts (inbound + outbound). Running automation-focused SaaS campaigns with ownership of the full sales cycle — from discovery to close. Built the outbound motion from scratch.</div>
       </div>
       <div class="exp-period">May 2025<br>— Feb 2026</div>
     </div>
@@ -405,43 +434,100 @@ footer .mono span{color:var(--amber);}
       <div class="process-step"><div class="step-node">09</div><div class="step-body"><div class="step-phase">Ongoing · Multi-Touch Cadence</div><div class="step-title">The Full Sequence</div><div class="step-desc">Every prospect goes through a <strong>structured multi-channel cadence</strong>. Timing, channel order, and messaging continuously adjusted based on engagement data.</div><div class="sequence-flow"><div class="seq-item">LinkedIn Connect + Email 1</div><div class="seq-arrow">→</div><div class="seq-item">LinkedIn Bridge + Email 2</div><div class="seq-arrow">→</div><div class="seq-item">Cold Call</div><div class="seq-arrow">→</div><div class="seq-item">LinkedIn DM + Email 3</div></div><div class="step-tags" style="margin-top:.8rem;"><span class="step-tag">LinkedIn</span><span class="step-tag">Cold calling</span><span class="step-tag">Email cadence</span><span class="step-tag">Multi-touch</span><span class="step-tag">Iteration</span></div></div></div>
     </div>
   </div>
+  <div class="case-outcome reveal">
+    <div class="case-outcome-label">Applied Case Study</div>
+    <div class="case-outcome-grid">
+      <div>
+        <div class="case-outcome-number">20%</div>
+        <div class="case-outcome-caption">Organic Growth · First 30 Days</div>
+      </div>
+      <div class="case-outcome-text">Ran this exact playbook for an <strong>international manufacturing consulting firm operating in the M&amp;A integration sector</strong>. ICP development, signal-led account research, A/B-tested messaging, and the structured multi-touch cadence drove <strong>~20% organic growth</strong> in outreach engagement and qualified pipeline within the first 30 days of execution.</div>
+    </div>
+  </div>
 </section>
+
+<section class="certs-section" id="certifications">
+  <div class="section-label">Finance Credentials</div>
+  <h2 class="section-heading reveal">Certifications</h2>
+  <p class="certs-intro reveal">Applied certifications in corporate finance, valuation, and portfolio analysis — the analytical layer behind every deal I run.</p>
+  <div class="certs-grid">
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Macquarie University</div>
+      <div class="cert-title">Excel Skills for Business: Intermediate II</div>
+      <div class="cert-date">Aug 2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Macquarie University</div>
+      <div class="cert-title">Excel Skills for Business: Intermediate I</div>
+      <div class="cert-date">Aug 2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Gies College of Business · UIUC</div>
+      <div class="cert-title">Corporate Finance II: Financing Investments &amp; Managing Risk</div>
+      <div class="cert-date">Jul 2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Gies College of Business · UIUC</div>
+      <div class="cert-title">Corporate Finance I: Measuring &amp; Promoting Value Creation</div>
+      <div class="cert-date">Jul 2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Coursera</div>
+      <div class="cert-title">Portfolio Optimization Using Markowitz Model</div>
+      <div class="cert-date">Jan 2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Coursera</div>
+      <div class="cert-title">Seeking Investment Alpha</div>
+      <div class="cert-date">Jan 2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Coursera</div>
+      <div class="cert-title">Stock Valuation Using Dividend Discounting Model</div>
+      <div class="cert-date">Jan 2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Coursera</div>
+      <div class="cert-title">Profit Analysis Using Economic Value Added</div>
+      <div class="cert-date">Jan 2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Coursera</div>
+      <div class="cert-title">Discounted Cash Flow Modeling</div>
+      <div class="cert-date">Jan 2025</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Coursera</div>
+      <div class="cert-title">Investment Risk Management</div>
+      <div class="cert-date">Dec 2024</div>
+    </div>
+  </div>
+</section>
+
 <section class="edu-lead" id="education">
   <div class="section-label">Background</div>
-  <h2 class="section-heading reveal">Education &amp; Certifications</h2>
+  <h2 class="section-heading reveal">Education &amp; Leadership</h2>
   <div class="edu-lead-grid">
     <div>
-      <div class="edu-card reveal" style="margin-bottom:1.5rem;">
+      <div class="edu-card reveal">
         <div class="edu-card-label">Degree</div>
         <div class="edu-uni">COMSATS University Islamabad</div>
         <div class="edu-degree">BS Business Administration</div>
         <div class="edu-degree" style="font-size:.82rem;margin-top:.1rem;">Major: Accounting &amp; Finance</div>
-        <div class="edu-date" style="margin-top:.9rem;">Graduating June 2026</div>
-      </div>
-      
-      <div class="edu-card reveal reveal-delay-1">
-        <div class="edu-card-label">Leadership</div>
-        <div class="edu-uni">NUST FICS &amp; CMC</div>
-        <div class="edu-degree">Startup Pitch Competitor &amp; Marketing Team Lead</div>
-        <div class="edu-date" style="margin-top:.9rem;">2024 – 2025</div>
+        <div class="edu-date" style="margin-top:.9rem;">CGPA 3.67 · Graduated June 2026</div>
       </div>
     </div>
     <div>
       <div class="lead-items">
         <div class="lead-item reveal">
-          <div class="lead-role">Seeking Investment Alpha</div>
-          <div class="lead-org">Coursera Certification</div>
-          <div class="lead-desc">Mastered strategies for generating excess returns and evaluating market efficiencies to build highly optimized investment portfolios.</div>
+          <div class="lead-role">Marketing Team Lead</div>
+          <div class="lead-org">COMSATS Media Club (CMC)</div>
+          <div class="lead-desc">Led marketing campaigns, coordinated outreach, and drove engagement strategies for the university society. Oct 2024 – Apr 2025</div>
         </div>
         <div class="lead-item reveal reveal-delay-1">
-          <div class="lead-role">Portfolio Optimization: Markowitz Model</div>
-          <div class="lead-org">Coursera Certification</div>
-          <div class="lead-desc">Applied advanced mathematical modeling to minimize risk while maximizing expected returns through modern portfolio theory.</div>
-        </div>
-        <div class="lead-item reveal reveal-delay-2">
-          <div class="lead-role">Discounted Cash Flow (DCF) Modeling</div>
-          <div class="lead-org">Coursera Certification</div>
-          <div class="lead-desc">Developed rigorous valuation models to forecast future cash flows, bringing deep, structural financial analysis to revenue forecasting.</div>
+          <div class="lead-role">Startup Pitch Competitor</div>
+          <div class="lead-org">NUST · FICS 2024</div>
+          <div class="lead-desc">Presented 2 eco-friendly startup ideas. Advanced a hydroponic farming project through the competition. Apr – Aug 2024</div>
         </div>
       </div>
     </div>
@@ -452,7 +538,7 @@ footer .mono span{color:var(--amber);}
   <div class="contact-left">
     <div class="section-label">Let's Talk</div>
     <h2 class="section-heading reveal">Get In Touch</h2>
-    <p class="contact-sub">Open to full-cycle sales roles, SDR leadership, or SaaS sales positions. Based in Islamabad — available across time zones.</p>
+    <p class="contact-sub">Open to AE roles, SDR leadership, or SaaS sales positions. Based in Islamabad — available across time zones.</p>
     <a href="mailto:m.shaban.idreesi@gmail.com" class="btn-primary"><span>Send an Email ↗</span></a>
   </div>
   <div class="contact-right reveal reveal-delay-1">
@@ -496,7 +582,7 @@ footer .mono span{color:var(--amber);}
 
 <footer>
   <span class="mono">© 2025 <span>Muhammad Shaban</span></span>
-  <span class="mono">B2B Sales · <span>Outbound Strategy</span></span>
+  <span class="mono">BBA Accounting &amp; Finance</span>
   <span class="mono">Built with intent.</span>
 </footer>
 <script>
@@ -565,22 +651,20 @@ document.querySelectorAll('.process-step').forEach(function(el,i){
   el.style.transitionDelay=(i*0.07)+'s';stepObs.observe(el);
 });
 
-// Spring counter updated to handle both integer and float values gracefully
-function animCounter(el,target){
+// Spring counter
+function animCounter(el,target,decimals){
   var start=null,dur=1100;
-  var isFloat = target % 1 !== 0;
   (function step(ts){
     if(!start)start=ts;
     var p=Math.min((ts-start)/dur,1);
     var ease=1-Math.pow(1-p,4);
-    var val = ease*target;
-    el.textContent = isFloat ? val.toFixed(1) : Math.round(val);
+    el.textContent=(ease*target).toFixed(decimals);
     if(p<1)requestAnimationFrame(step);
-    else el.textContent = isFloat ? target.toFixed(1) : target;
+    else el.textContent=target.toFixed(decimals);
   })(performance.now());
 }
 var cntObs=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){if(e.isIntersecting){animCounter(e.target,parseFloat(e.target.dataset.target));cntObs.unobserve(e.target);}});
+  entries.forEach(function(e){if(e.isIntersecting){var dec=parseInt(e.target.dataset.decimals||'0');animCounter(e.target,parseFloat(e.target.dataset.target),dec);cntObs.unobserve(e.target);}});
 },{threshold:.4});
 document.querySelectorAll('.counter').forEach(function(el){cntObs.observe(el);});
 </script>
