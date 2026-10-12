@@ -3,179 +3,236 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Muhammad Shaban, Business Development Manager leading sales and marketing. SDR to AE to BD manager, $700K+ closed across US and EU markets. Brand building, sales ops, product-market and sales-market fit."/>
+<meta name="description" content="Muhammad Shaban, Business Development Manager. SDR to AE to leading a sales and marketing team, with $700K+ closed across US and EU markets. Brand building, sales ops, product-market and sales-market fit."/>
+<meta property="og:title" content="Muhammad Shaban | Sales and Business Development"/>
 <title>Muhammad Shaban | Sales and Business Development</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet"/>
+<script>document.documentElement.classList.add('js');</script>
 <style>
 :root{
-  --paper:#F2F4EF;
-  --ink:#15201A;
-  --green:#1F5C43;
-  --mint:#DCE7DE;
-  --brass:#A9781F;
-  --rule:#C7D1C9;
-  --muted:#56625B;
+  --bg:#0F1A16;
+  --surface:#16241F;
+  --raised:#1D2E28;
+  --text:#E6E9E2;
+  --body:#CDD3CC;
+  --muted:#9AA89F;
+  --accent:#D9A54A;
+  --accent-ink:#2E220B;
+  --rule:#2A3B34;
+  --radius:6px;
+  --ease:cubic-bezier(.16,1,.3,1);
   --wide:"wdth" 125;
-  --max:1180px;
+  --max:1200px;
+  color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
-body{background:var(--paper);color:var(--ink);font-family:'Archivo',system-ui,sans-serif;font-size:1.0625rem;line-height:1.6;font-variant-numeric:tabular-nums;}
+body{background:var(--bg);color:var(--text);font-family:'Archivo',system-ui,sans-serif;font-size:1.0625rem;line-height:1.6;font-variant-numeric:tabular-nums;}
 a{color:inherit;}
-a:focus-visible,button:focus-visible{outline:3px solid var(--brass);outline-offset:3px;}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px;}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 2rem;}
-@media(max-width:640px){.wrap{padding:0 1.25rem;}}
+@media(max-width:700px){.wrap{padding:0 1.25rem;}}
+
+/* SCROLL PROGRESS (CSS scroll timeline, hidden where unsupported) */
+.progress{display:none;position:fixed;top:0;left:0;right:0;height:3px;background:var(--accent);transform-origin:0 50%;transform:scaleX(0);z-index:30;pointer-events:none;}
+@supports (animation-timeline: scroll()){
+  @media(prefers-reduced-motion:no-preference){
+    .progress{display:block;animation:grow linear both;animation-timeline:scroll(root);}
+  }
+}
+@keyframes grow{to{transform:scaleX(1);}}
+
+/* BUTTONS */
+.btn{position:relative;isolation:isolate;overflow:hidden;display:inline-block;text-decoration:none;font-weight:600;letter-spacing:.01em;padding:.85rem 1.4rem;border-radius:var(--radius);border:1.5px solid var(--accent);white-space:nowrap;transition:color .3s var(--ease),border-color .3s var(--ease),background-color .3s var(--ease),transform .15s var(--ease);}
+.btn:active{transform:translateY(1px) scale(.98);}
+.btn.solid{background:var(--accent);color:var(--bg);}
+.btn.solid::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--text);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease);}
+.btn.solid:hover::before{transform:scaleX(1);transform-origin:left;}
+.btn.solid:hover{border-color:var(--text);}
+.btn.line{color:var(--text);border-color:var(--rule);}
+.btn.line:hover{border-color:var(--accent);color:var(--accent);background:rgba(217,165,74,.08);}
 
 /* NAV */
-nav{border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:10;}
+.sentinel{position:absolute;top:0;height:1px;width:1px;}
+nav{position:sticky;top:0;z-index:20;background:rgba(15,26,22,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s,background-color .3s;}
+nav.scrolled{border-color:var(--rule);background:rgba(15,26,22,.95);box-shadow:0 10px 30px -18px rgba(0,0,0,.7);}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
-.brand{font-weight:800;font-variation-settings:var(--wide);text-decoration:none;font-size:1.05rem;letter-spacing:-.01em;}
-.nav-links{display:flex;gap:1.75rem;list-style:none;}
-.nav-links a{text-decoration:none;font-size:.95rem;color:var(--muted);}
-.nav-links a:hover{color:var(--green);}
-.nav-links .cta{color:var(--paper);background:var(--green);padding:.45rem .9rem;border-radius:4px;}
-.nav-links .cta:hover{color:var(--paper);background:var(--ink);}
-@media(max-width:820px){.nav-links li:not(:last-child){display:none;}}
+.brand{font-weight:800;font-variation-settings:var(--wide);text-decoration:none;letter-spacing:-.01em;transition:color .25s;}
+.brand:hover{color:var(--accent);}
+.nav-links{display:flex;align-items:center;gap:1.75rem;list-style:none;}
+.nav-links a:not(.btn){position:relative;text-decoration:none;font-size:.95rem;color:var(--muted);transition:color .25s;padding:.2rem 0;}
+.nav-links a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1.5px;background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease);}
+.nav-links a:not(.btn):hover,.nav-links a.active{color:var(--text);}
+.nav-links a:not(.btn):hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left;}
+.nav-links li{display:flex;}
+.nav-links .btn{padding:.45rem .9rem;font-size:.92rem;}
+@media(max-width:900px){.nav-links li:not(:last-child){display:none;}}
 
 /* HERO */
-.hero{padding:3.5rem 0 4rem;}
-.hero h1{font-weight:900;font-variation-settings:var(--wide);font-size:clamp(2.6rem,6.6vw,5.4rem);line-height:.92;letter-spacing:-.035em;}
-.headline{margin-top:1.25rem;font-size:clamp(1.45rem,2.6vw,2.1rem);line-height:1.2;font-weight:500;max-width:30ch;letter-spacing:-.015em;text-wrap:balance;}
-.sub{margin-top:1rem;max-width:64ch;color:var(--muted);font-size:1.1rem;}
-.actions{margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap;}
-.btn{display:inline-block;letter-spacing:.01em;text-decoration:none;font-weight:600;padding:.85rem 1.4rem;border-radius:4px;border:1.5px solid var(--green);}
-.btn.solid{background:var(--green);color:var(--paper);}
-.btn.solid:hover{background:var(--ink);border-color:var(--ink);}
-.btn.line{color:var(--green);}
-.btn.line:hover{background:var(--mint);}
+.hero{padding:3rem 0 3.25rem;}
+.name{font-weight:900;font-variation-settings:var(--wide);font-size:min(5.6rem,calc((100vw - 4rem)/12.6));line-height:1;letter-spacing:-.035em;white-space:nowrap;}
+.name .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.06em;}
+.name .w>span{display:inline-block;}
+@media(max-width:700px){.name{white-space:normal;font-size:calc((100vw - 2.5rem)/7.6);line-height:.98;}.name .w{display:block;}}
+.hero-grid{margin-top:2.25rem;padding-top:2.25rem;border-top:1px solid var(--rule);display:grid;grid-template-columns:1.15fr 1fr;gap:3.5rem;align-items:start;}
+.headline{font-size:clamp(1.4rem,2.3vw,1.95rem);line-height:1.22;font-weight:500;letter-spacing:-.015em;max-width:24ch;text-wrap:balance;}
+.sub{margin-top:.9rem;color:var(--muted);max-width:46ch;font-size:1.08rem;}
+.actions{margin-top:1.75rem;display:flex;gap:.75rem;flex-wrap:wrap;}
+.figures{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden;}
+.figures div{background:var(--bg);padding:1.25rem 1.4rem;transition:background-color .3s var(--ease);}
+.figures div:hover{background:var(--surface);}
+.figures dt{font-weight:800;font-variation-settings:"wdth" 112;font-size:clamp(2rem,3.2vw,2.7rem);line-height:1;color:var(--accent);letter-spacing:-.02em;}
+.figures dd{margin-top:.45rem;font-size:.95rem;color:var(--muted);}
+@media(max-width:860px){.hero{padding:2rem 0 2.5rem;}.hero-grid{grid-template-columns:1fr;gap:2rem;margin-top:1.5rem;padding-top:1.5rem;}.figures div{padding:1.1rem 1.1rem;}.figures dd{font-size:.9rem;}}
 
-/* PIPELINE TRACKER */
-.pipeline{margin-top:3rem;}
-.pipeline h2{font-size:1rem;font-weight:600;color:var(--muted);margin-bottom:.9rem;}
+/* PIPELINE */
+.pipeline{margin-top:2.5rem;}
+.pipeline h2{font-size:.98rem;font-weight:600;color:var(--muted);margin-bottom:.8rem;}
 .stages{display:grid;grid-template-columns:repeat(4,1fr);list-style:none;gap:4px;}
-.stage{position:relative;padding:1.1rem 1.6rem 1.1rem 2.2rem;background:var(--mint);color:var(--green);clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%,18px 50%);animation:fill .5s ease-out both;}
-.stage:first-child{clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%);padding-left:1.25rem;}
-.stage:nth-child(2){animation-delay:.25s;}
-.stage:nth-child(3){animation-delay:.5s;}
-.stage:nth-child(4){animation-delay:.75s;background:var(--green);color:var(--paper);}
+.stage a{display:block;height:100%;text-decoration:none;padding:1rem 1.6rem 1rem 2.2rem;background:var(--raised);clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%,18px 50%);transition:background-color .3s var(--ease),transform .3s var(--ease);}
+.stage:first-child a{clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%);padding-left:1.25rem;}
+.stage a:hover{background:#26392F;transform:translateY(-3px);}
+.stage:last-child a{background:var(--accent);color:var(--bg);}
+.stage:last-child a:hover{background:#E8BC6A;}
 .stage strong{display:block;font-weight:800;font-variation-settings:"wdth" 110;font-size:1.05rem;line-height:1.2;}
-.stage span{display:block;font-size:.88rem;opacity:.85;margin-top:.2rem;}
-.stage .now{display:inline-block;font-style:normal;margin-top:.45rem;font-size:.78rem;font-weight:700;color:var(--ink);background:#E9C77B;padding:.1rem .45rem;border-radius:3px;opacity:1;}
-@keyframes fill{from{opacity:0;transform:translateX(-12px);}to{opacity:1;transform:none;}}
-@media(max-width:820px){
+.stage span{display:block;font-size:.88rem;color:var(--muted);margin-top:.2rem;}
+.stage:last-child span{color:var(--accent-ink);}
+@media(max-width:860px){
   .stages{grid-template-columns:1fr;gap:3px;}
-  .stage,.stage:first-child{clip-path:polygon(0 0,100% 0,100% calc(100% - 10px),50% 100%,0 calc(100% - 10px));padding:1rem 1.25rem 1.5rem;}
-  .stage:last-child{clip-path:none;padding-bottom:1rem;}
+  .stage a,.stage:first-child a{clip-path:polygon(0 0,100% 0,100% calc(100% - 10px),50% 100%,0 calc(100% - 10px));padding:.9rem 1.25rem 1.4rem;}
+  .stage:last-child a{clip-path:none;padding-bottom:.9rem;}
 }
 
-/* FIGURES */
-.figures{margin-top:3rem;display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--ink);}
-.figures div{padding:1.25rem 1.25rem 0 0;}
-.figures div+div{padding-left:1.25rem;border-left:1px solid var(--rule);}
-.figures dt{font-weight:800;font-variation-settings:"wdth" 112;font-size:clamp(1.9rem,3.4vw,2.6rem);line-height:1;color:var(--green);letter-spacing:-.02em;}
-.figures dd{margin-top:.5rem;font-size:.95rem;color:var(--muted);max-width:28ch;}
-@media(max-width:820px){
-  .figures{grid-template-columns:1fr 1fr;}
-  .figures div:nth-child(3){padding-left:0;border-left:0;}
-  .figures div:nth-child(n+3){border-top:1px solid var(--rule);margin-top:1.25rem;}
+/* HERO LOAD SEQUENCE */
+@media(prefers-reduced-motion:no-preference){
+  .js .name .w>span{animation:rise 1s var(--ease) both;}
+  .js .name .w:nth-child(2)>span{animation-delay:.09s;}
+  .js .hero-grid{animation:line 1s var(--ease) .25s both;}
+  .js .load{animation:up .8s var(--ease) both;animation-delay:calc(.35s + var(--i,0)*90ms);}
+  .js .stage{animation:slide .6s var(--ease) both;animation-delay:calc(.75s + var(--i,0)*120ms);}
 }
+@keyframes rise{from{transform:translateY(105%);}to{transform:none;}}
+@keyframes up{from{opacity:0;translate:0 18px;}to{opacity:1;translate:0 0;}}
+@keyframes slide{from{opacity:0;translate:-14px 0;}to{opacity:1;translate:0 0;}}
+@keyframes line{from{border-top-color:transparent;}to{border-top-color:var(--rule);}}
 
 /* SECTIONS */
-section{padding:5rem 0;border-top:1px solid var(--rule);}
-.sec-head{display:grid;grid-template-columns:1fr 2fr;gap:3rem;margin-bottom:2.5rem;align-items:end;}
-.sec-head h2{font-weight:900;font-variation-settings:var(--wide);font-size:clamp(2rem,4.2vw,3.25rem);line-height:1;letter-spacing:-.03em;}
-.sec-head p{color:var(--muted);max-width:56ch;}
-@media(max-width:820px){.sec-head{grid-template-columns:1fr;gap:1rem;}section{padding:3.5rem 0;}}
+section{padding:4.5rem 0;border-top:1px solid var(--rule);scroll-margin-top:64px;}
+.sec-title{font-weight:900;font-variation-settings:var(--wide);font-size:clamp(2rem,4vw,3rem);line-height:1;letter-spacing:-.03em;}
+.sec-lead{margin-top:.8rem;color:var(--muted);max-width:60ch;}
+.sec-body{margin-top:2.25rem;}
+@media(max-width:860px){section{padding:3.25rem 0;}.sec-body{margin-top:1.75rem;}}
+
+/* SCROLL REVEAL (JS adds .in; content stays visible without JS or with reduced motion) */
+@media(prefers-reduced-motion:no-preference){
+  .js [data-reveal]{opacity:0;translate:0 20px;transition:opacity .8s var(--ease),translate .8s var(--ease);}
+  .js [data-reveal].in{opacity:1;translate:0 0;}
+  .js [data-stagger]>*{opacity:0;translate:0 18px;transition:opacity .7s var(--ease) calc(var(--i,0)*70ms),translate .7s var(--ease) calc(var(--i,0)*70ms),transform .3s var(--ease),background-color .3s var(--ease),border-color .3s var(--ease),color .3s var(--ease);}
+  .js [data-stagger].in>*{opacity:1;translate:0 0;}
+}
 
 /* EXPERIENCE */
 .jobs{list-style:none;}
-.job{display:grid;grid-template-columns:1fr 2fr;gap:3rem;padding:2rem 0;border-top:1px solid var(--rule);}
+.job{position:relative;display:grid;grid-template-columns:1fr 2fr;gap:3rem;padding:1.6rem 1.25rem;border-top:1px solid var(--rule);scroll-margin-top:84px;transition:background-color .3s var(--ease);}
 .job:last-child{border-bottom:1px solid var(--rule);}
-.job-when{color:var(--muted);font-size:.95rem;}
-.job-co{font-weight:800;font-variation-settings:"wdth" 110;font-size:1.3rem;line-height:1.2;color:var(--ink);}
-.job-place{color:var(--muted);font-size:.92rem;margin-top:.15rem;}
-.job-role{font-weight:600;color:var(--green);font-size:1.1rem;margin-bottom:.5rem;}
-.job p{max-width:62ch;}
-.job.current .job-co::after{content:"Current";margin-left:.6rem;font-size:.72rem;font-weight:700;font-variation-settings:"wdth" 100;vertical-align:middle;background:#E9C77B;color:var(--ink);padding:.12rem .45rem;border-radius:3px;}
-@media(max-width:820px){.job{grid-template-columns:1fr;gap:.75rem;}}
+.job::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transform-origin:bottom;transition:transform .4s var(--ease);}
+.job:hover{background:var(--surface);}
+.job:hover::before{transform:scaleY(1);transform-origin:top;}
+.job:target{animation:flash 1.8s var(--ease);}
+@keyframes flash{0%,30%{background:rgba(217,165,74,.16);}100%{background:transparent;}}
+.job-co{font-weight:800;font-variation-settings:"wdth" 110;font-size:1.3rem;line-height:1.2;transition:color .3s;}
+.job:hover .job-co{color:var(--accent);}
+.job-meta{color:var(--muted);font-size:.93rem;margin-top:.15rem;}
+.job-role{font-weight:600;color:var(--accent);font-size:1.08rem;margin-bottom:.4rem;}
+.job p{max-width:62ch;color:var(--body);}
+.tag{display:inline-block;margin-left:.5rem;vertical-align:middle;font-size:.72rem;font-weight:700;font-variation-settings:"wdth" 100;background:var(--accent);color:var(--bg);padding:.1rem .45rem;border-radius:var(--radius);}
+@media(max-width:860px){.job{grid-template-columns:1fr;gap:.5rem;padding:1.4rem 1rem;}}
 
 /* SKILLS */
-.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem;}
-.skills h3{font-weight:700;font-size:1rem;margin-bottom:.75rem;padding-bottom:.6rem;border-bottom:2px solid var(--green);}
-.skills ul{list-style:none;}
-.skills li{padding:.35rem 0;border-bottom:1px solid var(--rule);font-size:.98rem;}
-@media(max-width:900px){.skills{grid-template-columns:1fr 1fr;}}
-@media(max-width:520px){.skills{grid-template-columns:1fr;}}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:2.25rem 3rem;}
+.skills h3{font-weight:700;font-size:1.05rem;margin-bottom:.75rem;}
+.pills{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;}
+.pills li{background:var(--surface);border:1px solid var(--rule);padding:.4rem .75rem;border-radius:var(--radius);font-size:.95rem;cursor:default;transition:transform .3s var(--ease),background-color .3s var(--ease),border-color .3s var(--ease),color .3s var(--ease);}
+.pills li:hover{transform:translateY(-3px);border-color:var(--accent);color:var(--accent);}
+.pills.accent li{border-color:#5B4A24;background:#231F14;color:#F0D9A6;}
+.pills.accent li:hover{background:var(--accent);border-color:var(--accent);color:var(--bg);}
+@media(max-width:700px){.skills{grid-template-columns:1fr;gap:1.75rem;}}
 
 /* PLAYBOOK */
-.playbook{display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:start;}
-.facts{position:sticky;top:90px;background:var(--mint);padding:1.5rem;border-radius:6px;}
-.facts dl div{padding:.6rem 0;border-bottom:1px solid #BFD0C3;}
-.facts dl div:last-child{border-bottom:0;}
+.facts{display:grid;grid-template-columns:repeat(5,1fr);background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);}
+.facts div{padding:1rem 1.2rem;}
+.facts div+div{border-left:1px solid var(--rule);}
 .facts dt{font-size:.85rem;color:var(--muted);}
-.facts dd{font-weight:600;}
-.steps{list-style:none;counter-reset:step;}
-.steps>li{counter-increment:step;display:grid;grid-template-columns:3.25rem 1fr;gap:1rem;padding:1.5rem 0;border-top:1px solid var(--rule);}
-.steps>li::before{content:counter(step);font-weight:900;font-variation-settings:var(--wide);font-size:1.6rem;line-height:1;color:var(--green);}
+.facts dd{font-weight:600;font-size:.97rem;margin-top:.15rem;}
+@media(max-width:960px){.facts{grid-template-columns:1fr 1fr;}.facts div+div{border-left:0;}.facts div{border-top:1px solid var(--rule);}.facts div:nth-child(-n+2){border-top:0;}.facts div:nth-child(even){border-left:1px solid var(--rule);}}
+@media(max-width:520px){.facts{grid-template-columns:1fr;}.facts div:nth-child(even){border-left:0;}.facts div:nth-child(2){border-top:1px solid var(--rule);}}
+.steps{margin-top:1.5rem;list-style:none;counter-reset:step;display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;}
+.steps>li{counter-increment:step;padding:1.3rem 1.35rem;border:1px solid var(--rule);border-radius:var(--radius);}
+.steps>li:hover{background:var(--surface);border-color:#3D5248;transform:translateY(-4px);}
+.steps>li::before{content:counter(step);display:block;font-weight:900;font-variation-settings:var(--wide);font-size:2rem;line-height:1;color:var(--accent);margin-bottom:.7rem;transition:transform .35s var(--ease);transform-origin:left bottom;}
+.steps>li:hover::before{transform:scale(1.12);}
 .steps .when{font-size:.88rem;color:var(--muted);}
-.steps h3{font-size:1.15rem;font-weight:700;margin:.1rem 0 .4rem;}
-.steps p{max-width:60ch;}
-.cadence{margin-top:.75rem;list-style:none;display:flex;flex-wrap:wrap;gap:.4rem;}
-.cadence li{display:block;padding:.35rem .7rem;background:var(--mint);border-radius:4px;font-size:.9rem;border:0;}
-.cadence li::before{content:none;}
-@media(max-width:820px){.playbook{grid-template-columns:1fr;}.facts{position:static;}}
-
-.outcome{margin-top:3rem;background:var(--green);color:var(--paper);border-radius:6px;padding:2.25rem;display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:center;}
-.outcome b{font-weight:900;font-variation-settings:var(--wide);font-size:clamp(3rem,7vw,5rem);line-height:.9;letter-spacing:-.04em;color:#E9C77B;}
-.outcome small{display:block;font-size:.9rem;margin-top:.4rem;opacity:.85;}
-.outcome p{max-width:60ch;}
-@media(max-width:700px){.outcome{grid-template-columns:1fr;gap:1rem;}}
+.steps h3{font-size:1.08rem;font-weight:700;line-height:1.3;margin:.1rem 0 .4rem;}
+.steps p{color:var(--body);font-size:.97rem;}
+.cadence{margin-top:.7rem;list-style:none;display:flex;flex-wrap:wrap;gap:.4rem;}
+.cadence li{padding:.28rem .55rem;background:var(--raised);border-radius:var(--radius);font-size:.86rem;}
+@media(max-width:960px){.steps{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.steps{grid-template-columns:1fr;}}
+.outcome{margin-top:1.5rem;display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:center;padding:1.75rem 2rem;background:var(--raised);border-left:4px solid var(--accent);border-radius:var(--radius);}
+.outcome b{font-weight:900;font-variation-settings:var(--wide);font-size:clamp(3rem,6vw,4.25rem);line-height:.9;letter-spacing:-.04em;color:var(--accent);display:block;}
+.outcome small{display:block;font-size:.9rem;color:var(--muted);margin-top:.4rem;}
+.outcome p{max-width:62ch;color:var(--body);}
+@media(max-width:700px){.outcome{grid-template-columns:1fr;gap:.9rem;padding:1.5rem;}}
 
 /* CERTIFICATIONS */
-.certs{width:100%;border-collapse:collapse;}
-.certs th{text-align:left;font-weight:600;font-size:.88rem;color:var(--muted);padding:.5rem 1rem .5rem 0;border-bottom:2px solid var(--ink);}
-.certs td{padding:.8rem 1rem .8rem 0;border-bottom:1px solid var(--rule);vertical-align:top;}
-.certs td:first-child{font-weight:600;}
-.certs td:last-child{white-space:nowrap;color:var(--muted);}
-@media(max-width:640px){
-  .certs thead{display:none;}
-  .certs tr{display:block;padding:.8rem 0;border-bottom:1px solid var(--rule);}
-  .certs td{display:block;border:0;padding:0;}
-  .certs td:last-child{font-size:.9rem;}
-}
+.certs{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:2.5rem;}
+.certs h3{font-weight:700;font-size:1.05rem;padding-bottom:.55rem;margin-bottom:.8rem;border-bottom:2px solid var(--accent);}
+.certs ul{list-style:none;display:grid;gap:.8rem;}
+.certs li{padding-left:.75rem;border-left:2px solid transparent;transition:border-color .3s var(--ease),transform .3s var(--ease);}
+.certs li:hover{border-left-color:var(--accent);transform:translateX(4px);}
+.certs li strong{display:block;font-weight:600;line-height:1.35;text-wrap:balance;transition:color .3s;}
+.certs li:hover strong{color:var(--accent);}
+.certs li span{font-size:.9rem;color:var(--muted);}
+@media(max-width:860px){.certs{grid-template-columns:1fr;gap:1.75rem;}}
 
 /* EDUCATION */
-.edu{display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
-.edu h3{font-weight:800;font-variation-settings:"wdth" 110;font-size:1.3rem;line-height:1.2;}
-.edu .meta{color:var(--muted);font-size:.95rem;margin-top:.25rem;}
-.edu article{padding:1.25rem 0;border-top:1px solid var(--rule);}
-.edu article:first-child{border-top:2px solid var(--ink);}
-@media(max-width:820px){.edu{grid-template-columns:1fr;gap:0;}}
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.edu article{padding:1.4rem 1.5rem;border:1px solid var(--rule);border-radius:var(--radius);transition:background-color .3s var(--ease),border-color .3s var(--ease),transform .3s var(--ease);}
+.edu article:hover{background:var(--surface);border-color:#3D5248;transform:translateY(-3px);}
+.edu .degree{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:.25rem 2rem;align-items:center;}
+.edu h3{font-weight:800;font-variation-settings:"wdth" 110;font-size:1.2rem;line-height:1.2;}
+.edu .meta{color:var(--muted);font-size:.93rem;margin:.2rem 0 .4rem;}
+.edu p{color:var(--body);}
+.edu .degree .big{grid-column:2;grid-row:1/span 3;font-weight:900;font-variation-settings:var(--wide);font-size:clamp(1.6rem,3vw,2.4rem);line-height:1;color:var(--accent);letter-spacing:-.02em;text-align:right;}
+@media(max-width:700px){.edu{grid-template-columns:1fr;}.edu .degree{grid-template-columns:1fr;}.edu .degree .big{grid-column:1;grid-row:auto;text-align:left;margin-top:.6rem;}}
 
 /* CONTACT */
-.contact{background:var(--ink);color:var(--paper);border-top:0;}
-.contact h2{font-weight:900;font-variation-settings:var(--wide);font-size:clamp(2.2rem,5.5vw,4.5rem);line-height:.95;letter-spacing:-.035em;max-width:16ch;}
-.contact p{margin-top:1.25rem;max-width:56ch;color:#B9C6BD;}
-.contact-list{margin-top:2.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;list-style:none;border-top:1px solid #34443A;padding-top:1.5rem;}
-.contact-list span{display:block;font-size:.85rem;color:#8FA196;}
-.contact-list a{font-weight:600;text-decoration:none;border-bottom:1.5px solid #E9C77B;}
-.contact-list a:hover{color:#E9C77B;}
-.contact .btn.solid{background:#E9C77B;border-color:#E9C77B;color:var(--ink);margin-top:2rem;}
-.contact .btn.solid:hover{background:var(--paper);border-color:var(--paper);}
-@media(max-width:820px){.contact-list{grid-template-columns:1fr 1fr;}}
+.contact{background:var(--surface);}
+.contact h2{font-weight:900;font-variation-settings:var(--wide);font-size:clamp(2.2rem,5vw,4rem);line-height:.98;letter-spacing:-.035em;max-width:15ch;}
+.contact p{margin-top:1rem;max-width:56ch;color:var(--muted);}
+.contact-list{margin-top:2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;list-style:none;border-top:1px solid var(--rule);padding-top:1.4rem;}
+.contact-list span{display:block;font-size:.85rem;color:var(--muted);margin-bottom:.15rem;}
+.contact-list a{font-weight:600;text-decoration:none;overflow-wrap:anywhere;background:linear-gradient(var(--accent),var(--accent)) left bottom/100% 1.5px no-repeat;padding-bottom:2px;transition:background-size .35s var(--ease),color .3s;}
+.contact-list a:hover{color:var(--bg);background-size:100% 100%;}
+@media(max-width:860px){.contact-list{grid-template-columns:1fr 1fr;}}
 @media(max-width:480px){.contact-list{grid-template-columns:1fr;}}
 
-footer{background:var(--ink);color:#8FA196;font-size:.88rem;}
-footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:1.25rem;padding-bottom:1.25rem;border-top:1px solid #34443A;}
+footer{background:var(--surface);color:var(--muted);font-size:.88rem;}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-top:1.2rem;padding-bottom:1.4rem;border-top:1px solid var(--rule);}
 
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-delay:0s!important;}
+}
 </style>
 </head>
 <body>
+<div class="progress" aria-hidden="true"></div>
+<div class="sentinel" id="sentinel" aria-hidden="true"></div>
 
-<nav aria-label="Main">
+<nav aria-label="Main" id="nav">
   <div class="wrap">
     <a href="#top" class="brand">Muhammad Shaban</a>
     <ul class="nav-links">
@@ -184,85 +241,89 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
       <li><a href="#playbook">Playbook</a></li>
       <li><a href="#certifications">Certifications</a></li>
       <li><a href="#education">Education</a></li>
-      <li><a href="#contact" class="cta">Contact</a></li>
+      <li><a href="#contact" class="btn solid">Get in touch</a></li>
     </ul>
   </div>
 </nav>
 
 <header class="hero" id="top">
   <div class="wrap">
-    <h1>Muhammad Shaban</h1>
-    <p class="headline">I build brands buyers trust and sales pipelines that repeat.</p>
-    <p class="sub">Business Development Manager leading sales and marketing. I started on the phones as an SDR, moved to closing as an AE, and now run the team, with $700K+ closed across US and EU markets. My focus is brand building, sales ops, and finding product-market and sales-market fit. Based in Islamabad, selling everywhere.</p>
-    <div class="actions">
-      <a href="#contact" class="btn solid">Get in touch</a>
-      <a href="https://linkedin.com/in/shab0n" target="_blank" rel="noopener" class="btn line">View LinkedIn</a>
+    <h1 class="name"><span class="w"><span>Muhammad</span></span> <span class="w"><span>Shaban</span></span></h1>
+
+    <div class="hero-grid">
+      <div>
+        <p class="headline load" style="--i:0">I build brands buyers trust and sales pipelines that repeat.</p>
+        <p class="sub load" style="--i:1">Business Development Manager. SDR to AE to running the team, with $700K+ closed across US and EU markets.</p>
+        <div class="actions load" style="--i:2">
+          <a href="#contact" class="btn solid">Get in touch</a>
+          <a href="https://linkedin.com/in/shab0n" target="_blank" rel="noopener" class="btn line">View LinkedIn</a>
+        </div>
+      </div>
+      <dl class="figures load" style="--i:3">
+        <div><dt><span class="count" data-to="700" data-pre="$" data-suf="K+">$700K+</span></dt><dd>Closed in lifetime sales</dd></div>
+        <div><dt><span class="count" data-to="66" data-suf="%">66%</span></dt><dd>Conversation-to-meeting rate</dd></div>
+        <div><dt><span class="count" data-to="20" data-suf="K">20K</span></dt><dd>Views in under 60 days</dd></div>
+        <div><dt><span class="count" data-to="15" data-suf="K">15K</span></dt><dd>Impressions in under 60 days</dd></div>
+      </dl>
     </div>
 
     <div class="pipeline">
-      <h2>Career pipeline</h2>
+      <h2 class="load" style="--i:4">Career pipeline</h2>
       <ol class="stages">
-        <li class="stage"><strong>SDR</strong><span>Karvel Consulting, 2024</span></li>
-        <li class="stage"><strong>BD Associate</strong><span>AMBE Engineering, 2024</span></li>
-        <li class="stage"><strong>Account Executive</strong><span>Remotir Limited, 2025</span></li>
-        <li class="stage"><strong>BD Manager</strong><span>Anti Linear Technologies, 2026</span><em class="now">Current</em></li>
+        <li class="stage" style="--i:0"><a href="#job-karvel"><strong>SDR</strong><span>Karvel Consulting, 2024</span></a></li>
+        <li class="stage" style="--i:1"><a href="#job-ambe"><strong>BD Associate</strong><span>AMBE Engineering, 2024</span></a></li>
+        <li class="stage" style="--i:2"><a href="#job-remotir"><strong>Account Executive</strong><span>Remotir Limited, 2025</span></a></li>
+        <li class="stage" style="--i:3"><a href="#job-alt"><strong>BD Manager</strong><span>Anti Linear Technologies, 2026</span></a></li>
       </ol>
     </div>
-
-    <dl class="figures">
-      <div><dt>$700K+</dt><dd>Closed in lifetime sales</dd></div>
-      <div><dt>66%</dt><dd>Conversation-to-meeting rate</dd></div>
-      <div><dt>20K</dt><dd>Views in under 60 days</dd></div>
-      <div><dt>15K</dt><dd>Impressions in under 60 days</dd></div>
-    </dl>
   </div>
 </header>
 
 <section id="experience">
   <div class="wrap">
-    <div class="sec-head">
-      <h2>Experience</h2>
-      <p>Every seat on a sales team, from booking meetings to closing deals to leading the people who do both.</p>
+    <div data-reveal>
+      <h2 class="sec-title">Experience</h2>
+      <p class="sec-lead">Every seat on a sales team, from booking meetings to closing deals to leading the people who do both.</p>
     </div>
-    <ol class="jobs" reversed>
-      <li class="job current">
+    <ol class="jobs sec-body" reversed data-stagger>
+      <li class="job" id="job-alt">
         <div>
-          <div class="job-co">Anti Linear Technologies</div>
-          <div class="job-place">Islamabad, PK</div>
-          <div class="job-when">Aug 2026 to present</div>
+          <div class="job-co">Anti Linear Technologies<span class="tag">Current</span></div>
+          <div class="job-meta">Islamabad, PK</div>
+          <div class="job-meta">Aug 2026 to present</div>
         </div>
         <div>
           <div class="job-role">Business Development Manager</div>
           <p>Lead the sales and marketing team with a combined brand and outbound motion. Generated 15K impressions and 20K views in under 60 days, and brought in BD inbounds within the first 30 days. Own sales ops end to end: offer design, ICP and pricing for product-market and sales-market fit, CRM, outbound sequences and pipeline reporting.</p>
         </div>
       </li>
-      <li class="job">
+      <li class="job" id="job-remotir">
         <div>
           <div class="job-co">Remotir Limited</div>
-          <div class="job-place">London, UK, remote</div>
-          <div class="job-when">May 2025 to Feb 2026</div>
+          <div class="job-meta">London, UK, remote</div>
+          <div class="job-meta">May 2025 to Feb 2026</div>
         </div>
         <div>
           <div class="job-role">SMB Account Executive</div>
           <p>Founding SDR and first quota-carrying AE on two parallel accounts, inbound and outbound. Ran automation-focused SaaS campaigns and owned the full sales cycle from discovery to close. Built the outbound motion from scratch.</p>
         </div>
       </li>
-      <li class="job">
+      <li class="job" id="job-ambe">
         <div>
           <div class="job-co">AMBE Engineering</div>
-          <div class="job-place">Farmington Hills, MI, remote</div>
-          <div class="job-when">Apr 2024 to Apr 2025</div>
+          <div class="job-meta">Farmington Hills, MI, remote</div>
+          <div class="job-meta">Apr 2024 to Apr 2025</div>
         </div>
         <div>
           <div class="job-role">Business Development Associate</div>
           <p>Used an 11,000+ LinkedIn network spanning 4 executives to run re-engagement campaigns. Reached a 5% conversion to booked meetings through targeted outreach to past customers and warm connections, adding directly to ARR pipeline.</p>
         </div>
       </li>
-      <li class="job">
+      <li class="job" id="job-karvel">
         <div>
           <div class="job-co">Karvel Consulting</div>
-          <div class="job-place">Islamabad, PK, remote</div>
-          <div class="job-when">Jan 2024 to Apr 2025</div>
+          <div class="job-meta">Islamabad, PK, remote</div>
+          <div class="job-meta">Jan 2024 to Apr 2025</div>
         </div>
         <div>
           <div class="job-role">Sales Development Representative</div>
@@ -275,26 +336,26 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
 
 <section id="skills">
   <div class="wrap">
-    <div class="sec-head">
-      <h2>Skills and tools</h2>
-      <p>Built for outbound-heavy, high-velocity sales, and for the brand and sales ops behind it.</p>
+    <div data-reveal>
+      <h2 class="sec-title">Skills and tools</h2>
+      <p class="sec-lead">Built for outbound-heavy, high-velocity sales, and for the brand and sales ops behind it.</p>
     </div>
-    <div class="skills">
-      <div>
-        <h3>Sales</h3>
-        <ul><li>B2B SaaS sales</li><li>Cold calling</li><li>Discovery calls</li><li>Closing</li><li>Full sales cycle</li><li>C-suite engagement</li><li>Pipeline forecasting</li><li>Lead generation</li><li>Network re-engagement</li></ul>
-      </div>
+    <div class="skills sec-body">
       <div>
         <h3>Growth and ops</h3>
-        <ul><li>Brand building</li><li>Sales ops</li><li>Product-market fit</li><li>Sales-market fit</li><li>Offer and pricing design</li><li>Team leadership</li></ul>
+        <ul class="pills accent" data-stagger><li>Brand building</li><li>Sales ops</li><li>Product-market fit</li><li>Sales-market fit</li><li>Offer and pricing design</li><li>Team leadership</li></ul>
+      </div>
+      <div>
+        <h3>Sales</h3>
+        <ul class="pills" data-stagger><li>B2B SaaS sales</li><li>Cold calling</li><li>Discovery calls</li><li>Closing</li><li>Full sales cycle</li><li>C-suite engagement</li><li>Pipeline forecasting</li><li>Lead generation</li><li>Network re-engagement</li></ul>
       </div>
       <div>
         <h3>Tools</h3>
-        <ul><li>HubSpot</li><li>Salesforce</li><li>Zoho CRM</li><li>Apollo</li><li>LinkedIn Sales Navigator</li><li>Lusha</li><li>Outreach</li><li>Dripify</li><li>Microsoft Excel</li></ul>
+        <ul class="pills" data-stagger><li>HubSpot</li><li>Salesforce</li><li>Zoho CRM</li><li>Apollo</li><li>LinkedIn Sales Navigator</li><li>Lusha</li><li>Outreach</li><li>Dripify</li><li>Microsoft Excel</li></ul>
       </div>
       <div>
         <h3>Other ventures</h3>
-        <ul><li>Co-founded a 3D printing startup</li><li>NUST FICS startup pitch competitor</li><li>Hydroponic farming project</li></ul>
+        <ul class="pills" data-stagger><li>Co-founded a 3D printing startup</li><li>NUST FICS startup pitch competitor</li><li>Hydroponic farming project</li></ul>
       </div>
     </div>
   </div>
@@ -302,100 +363,105 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
 
 <section id="playbook">
   <div class="wrap">
-    <div class="sec-head">
-      <h2>Outbound playbook</h2>
-      <p>How I build an outbound motion from zero to pipeline: documented, tested and repeatable.</p>
+    <div data-reveal>
+      <h2 class="sec-title">Outbound playbook</h2>
+      <p class="sec-lead">How I build an outbound motion from zero to pipeline: documented, tested and repeatable.</p>
     </div>
-    <div class="playbook">
-      <aside class="facts">
-        <dl>
-          <div><dt>Motion</dt><dd>Multi-channel outbound</dd></div>
-          <div><dt>Channels</dt><dd>LinkedIn, email, cold call</dd></div>
-          <div><dt>Tools</dt><dd>Sales Navigator, Apollo, Lusha, Dripify, Outreach</dd></div>
-          <div><dt>Pilot batch</dt><dd>100 accounts before automation</dd></div>
-          <div><dt>Method</dt><dd>Signal-led, ICP-filtered, A/B tested</dd></div>
-        </dl>
-      </aside>
-      <ol class="steps">
-        <li><div><div class="when">Days 1 to 2</div><h3>Product deep-dive and documentation</h3><p>The first day goes entirely to understanding the product. I document the MVP and USP: what problem it solves, who it's for, and what makes it defensible. No outreach starts until I can state the value in one sentence.</p></div></li>
-        <li><div><div class="when">Week 1</div><h3>Build the ICP with marketing</h3><p>Work with marketing on an ideal customer profile: firmographics, technographics, buying triggers and persona pain points. Check it against existing customer data before locking it in.</p></div></li>
-        <li><div><div class="when">Week 1</div><h3>AI-assisted ICP filtering</h3><p>Run the ICP through AI to tighten the filters, remove noise, surface edge cases and test it against real account data. The output is a sharper ICP ready for tooling.</p></div></li>
-        <li><div><div class="when">Weeks 1 to 2</div><h3>Saved searches and lead lists in Sales Navigator</h3><p>Apply the ICP in LinkedIn Sales Navigator with boolean filters, job titles, company size, tech stack and growth signals. Build saved searches for a steady feed and export a first lead list.</p></div></li>
-        <li><div><div class="when">Week 2</div><h3>Signal audit of the first 100 accounts</h3><p>Research the first 100 accounts one by one. Pull buying signals from Sales Navigator, such as job changes, growth and content activity, and cross-check filings through Companies House UK or the SEC for enterprise targets.</p></div></li>
-        <li><div><div class="when">Week 2</div><h3>Draft copy and A/B test messaging</h3><p>Write A/B variants for each touchpoint: subject lines, opening lines and CTAs. Test them on the pilot batch, track reply rates and sentiment, and iterate. No message scales until it's proven.</p></div></li>
-        <li><div><div class="when">Weeks 2 to 3</div><h3>Send the first 100 to 150 by hand</h3><p>Before any automation, the first 100 to 150 touches go out manually. That keeps quality high, shows where the messaging catches, and builds real signal on what lands. Automation is earned, not assumed.</p></div></li>
-        <li><div><div class="when">Week 3 onward</div><h3>Automate with Dripify and Lusha</h3><p>Once the messaging works, Dripify runs the sequences at scale and Lusha supplies verified emails. Automation runs while I focus on replies, live calls and the active pipeline.</p></div></li>
-        <li><div><div class="when">Ongoing</div><h3>The full multi-touch cadence</h3><p>Every prospect moves through a structured multi-channel cadence. Timing, channel order and messaging keep adjusting based on engagement data.</p>
-          <ul class="cadence"><li>LinkedIn connect and email 1</li><li>LinkedIn bridge and email 2</li><li>Cold call</li><li>LinkedIn DM and email 3</li></ul></div></li>
-      </ol>
-    </div>
-    <div class="outcome">
-      <div><b>20%</b><small>Organic growth in the first 30 days</small></div>
-      <p>I ran this playbook for an international manufacturing consulting firm in the M&amp;A integration sector. ICP development, signal-led research, A/B-tested messaging and the multi-touch cadence drove about 20% organic growth in outreach engagement and qualified pipeline within the first 30 days.</p>
+    <dl class="facts sec-body" data-reveal>
+      <div><dt>Motion</dt><dd>Multi-channel outbound</dd></div>
+      <div><dt>Channels</dt><dd>LinkedIn, email, cold call</dd></div>
+      <div><dt>Tools</dt><dd>Sales Navigator, Apollo, Lusha, Dripify</dd></div>
+      <div><dt>Pilot batch</dt><dd>100 accounts before automation</dd></div>
+      <div><dt>Method</dt><dd>Signal-led, ICP-filtered, A/B tested</dd></div>
+    </dl>
+    <ol class="steps" data-stagger>
+      <li><div class="when">Days 1 to 2</div><h3>Product deep-dive</h3><p>Document the MVP and USP: what problem it solves, who it's for, and what makes it defensible. No outreach until the value fits in one sentence.</p></li>
+      <li><div class="when">Week 1</div><h3>Build the ICP with marketing</h3><p>Firmographics, technographics, buying triggers and persona pain points, checked against existing customer data before it's locked.</p></li>
+      <li><div class="when">Week 1</div><h3>AI-assisted ICP filtering</h3><p>Tighten the filters, remove noise, surface edge cases and test against real account data. The result is a sharper ICP ready for tooling.</p></li>
+      <li><div class="when">Weeks 1 to 2</div><h3>Lead lists in Sales Navigator</h3><p>Boolean filters, titles, company size, tech stack and growth signals. Saved searches for a steady feed and a first lead list.</p></li>
+      <li><div class="when">Week 2</div><h3>Signal audit of 100 accounts</h3><p>Research each account by hand: job changes, growth, content activity, and filings through Companies House UK or the SEC for enterprise targets.</p></li>
+      <li><div class="when">Week 2</div><h3>Copy and A/B tests</h3><p>Variants for subject lines, openers and CTAs, tested on the pilot batch. No message scales until it's proven.</p></li>
+      <li><div class="when">Weeks 2 to 3</div><h3>First 100 to 150 by hand</h3><p>Manual sends keep quality high and show what lands. Automation is earned, not assumed.</p></li>
+      <li><div class="when">Week 3 onward</div><h3>Automate with Dripify and Lusha</h3><p>Dripify runs the sequences and Lusha supplies verified emails, while I work replies, live calls and the active pipeline.</p></li>
+      <li><div class="when">Ongoing</div><h3>The multi-touch cadence</h3><p>Timing, channel order and messaging adjust to engagement data.</p>
+        <ul class="cadence"><li>Connect and email 1</li><li>Bridge and email 2</li><li>Cold call</li><li>DM and email 3</li></ul></li>
+    </ol>
+    <div class="outcome" data-reveal>
+      <div><b><span class="count" data-to="20" data-suf="%">20%</span></b><small>Organic growth in 30 days</small></div>
+      <p>I ran this playbook for an international manufacturing consulting firm in the M&amp;A integration sector. It drove about 20% organic growth in outreach engagement and qualified pipeline within the first 30 days.</p>
     </div>
   </div>
 </section>
 
 <section id="certifications">
   <div class="wrap">
-    <div class="sec-head">
-      <h2>Certifications</h2>
-      <p>Corporate finance, valuation and portfolio analysis: the analytical side of every deal I run.</p>
+    <div data-reveal>
+      <h2 class="sec-title">Certifications</h2>
+      <p class="sec-lead">Corporate finance, valuation and portfolio analysis: the analytical side of every deal I run.</p>
     </div>
-    <table class="certs">
-      <thead><tr><th scope="col">Certification</th><th scope="col">Issuer</th><th scope="col">Date</th></tr></thead>
-      <tbody>
-        <tr><td>Excel Skills for Business: Intermediate II</td><td>Macquarie University</td><td>Aug 2025</td></tr>
-        <tr><td>Excel Skills for Business: Intermediate I</td><td>Macquarie University</td><td>Aug 2025</td></tr>
-        <tr><td>Corporate Finance II: Financing Investments and Managing Risk</td><td>Gies College of Business, UIUC</td><td>Jul 2025</td></tr>
-        <tr><td>Corporate Finance I: Measuring and Promoting Value Creation</td><td>Gies College of Business, UIUC</td><td>Jul 2025</td></tr>
-        <tr><td>Portfolio Optimization Using Markowitz Model</td><td>Coursera</td><td>Jan 2025</td></tr>
-        <tr><td>Seeking Investment Alpha</td><td>Coursera</td><td>Jan 2025</td></tr>
-        <tr><td>Stock Valuation Using Dividend Discounting Model</td><td>Coursera</td><td>Jan 2025</td></tr>
-        <tr><td>Profit Analysis Using Economic Value Added</td><td>Coursera</td><td>Jan 2025</td></tr>
-        <tr><td>Discounted Cash Flow Modeling</td><td>Coursera</td><td>Jan 2025</td></tr>
-        <tr><td>Investment Risk Management</td><td>Coursera</td><td>Dec 2024</td></tr>
-      </tbody>
-    </table>
+    <div class="certs sec-body">
+      <div>
+        <h3>Corporate finance</h3>
+        <ul data-stagger>
+          <li><strong>Corporate Finance II: Financing Investments and Managing Risk</strong><span>Gies College of Business, UIUC, Jul 2025</span></li>
+          <li><strong>Corporate Finance I: Measuring and Promoting Value Creation</strong><span>Gies College of Business, UIUC, Jul 2025</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Valuation and investing</h3>
+        <ul data-stagger>
+          <li><strong>Discounted Cash Flow Modeling</strong><span>Coursera, Jan 2025</span></li>
+          <li><strong>Stock Valuation Using Dividend Discounting Model</strong><span>Coursera, Jan 2025</span></li>
+          <li><strong>Profit Analysis Using Economic Value Added</strong><span>Coursera, Jan 2025</span></li>
+          <li><strong>Portfolio Optimization Using Markowitz Model</strong><span>Coursera, Jan 2025</span></li>
+          <li><strong>Seeking Investment Alpha</strong><span>Coursera, Jan 2025</span></li>
+          <li><strong>Investment Risk Management</strong><span>Coursera, Dec 2024</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Excel</h3>
+        <ul data-stagger>
+          <li><strong>Excel Skills for Business: Intermediate II</strong><span>Macquarie University, Aug 2025</span></li>
+          <li><strong>Excel Skills for Business: Intermediate I</strong><span>Macquarie University, Aug 2025</span></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="education">
   <div class="wrap">
-    <div class="sec-head">
-      <h2>Education and leadership</h2>
-      <p>A finance degree behind the sales work.</p>
+    <div data-reveal>
+      <h2 class="sec-title">Education and leadership</h2>
     </div>
-    <div class="edu">
-      <div>
-        <article>
-          <h3>COMSATS University Islamabad</h3>
-          <p>BS Business Administration, major in Accounting and Finance</p>
-          <p class="meta">Graduated June 2026</p>
-        </article>
-      </div>
-      <div>
-        <article>
-          <h3>Marketing Team Lead</h3>
-          <p class="meta">COMSATS Media Club, Oct 2024 to Apr 2025</p>
-          <p>Led marketing campaigns, coordinated outreach and drove engagement for the university society.</p>
-        </article>
-        <article>
-          <h3>Startup Pitch Competitor</h3>
-          <p class="meta">NUST FICS 2024, Apr to Aug 2024</p>
-          <p>Presented 2 eco-friendly startup ideas and advanced a hydroponic farming project through the competition.</p>
-        </article>
-      </div>
+    <div class="edu sec-body" data-stagger>
+      <article class="degree">
+        <h3>COMSATS University Islamabad</h3>
+        <p class="meta">Graduated June 2026</p>
+        <p>BS Business Administration, major in Accounting and Finance.</p>
+        <p class="big">BBA, Accounting<br>and Finance</p>
+      </article>
+      <article>
+        <h3>Marketing Team Lead</h3>
+        <p class="meta">COMSATS Media Club, Oct 2024 to Apr 2025</p>
+        <p>Led marketing campaigns, coordinated outreach and drove engagement for the university society.</p>
+      </article>
+      <article>
+        <h3>Startup Pitch Competitor</h3>
+        <p class="meta">NUST FICS 2024, Apr to Aug 2024</p>
+        <p>Presented 2 eco-friendly startup ideas and advanced a hydroponic farming project through the competition.</p>
+      </article>
     </div>
   </div>
 </section>
 
 <section class="contact" id="contact">
   <div class="wrap">
-    <h2>Let's talk about your pipeline.</h2>
-    <p>Open to sales and marketing leadership roles, and to helping companies with brand building, sales ops and market fit. Based in Islamabad, available across time zones.</p>
-    <a href="mailto:m.shaban.idreesi@gmail.com" class="btn solid">Email me</a>
-    <ul class="contact-list">
+    <div data-reveal>
+      <h2>Let's talk about your pipeline.</h2>
+      <p>Open to sales and marketing leadership roles, and to helping companies with brand building, sales ops and market fit. Available across time zones.</p>
+    </div>
+    <ul class="contact-list" data-stagger>
       <li><span>Email</span><a href="mailto:m.shaban.idreesi@gmail.com">m.shaban.idreesi@gmail.com</a></li>
       <li><span>LinkedIn</span><a href="https://linkedin.com/in/shab0n" target="_blank" rel="noopener">linkedin.com/in/shab0n</a></li>
       <li><span>WhatsApp</span><a href="https://wa.me/923225201380" target="_blank" rel="noopener">+92 322 5201380</a></li>
@@ -411,5 +477,72 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
   </div>
 </footer>
 
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Stagger index for grouped reveals
+  document.querySelectorAll('[data-stagger]').forEach(function(g){
+    Array.prototype.forEach.call(g.children, function(c, i){ c.style.setProperty('--i', i); });
+  });
+
+  // Count-up for figures (final values are already in the HTML)
+  function countUp(el){
+    if (reduce || el.dataset.done) return;
+    el.dataset.done = '1';
+    var to = parseFloat(el.dataset.to), pre = el.dataset.pre || '', suf = el.dataset.suf || '';
+    var dur = 1500, start = null;
+    function step(ts){
+      if (start === null) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var v = Math.round(to * (1 - Math.pow(1 - p, 3)));
+      el.textContent = pre + v + suf;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    el.textContent = pre + '0' + suf;
+    requestAnimationFrame(step);
+  }
+
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('[data-reveal],[data-stagger]').forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+
+  // Scroll reveals
+  var revealObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      e.target.querySelectorAll('.count').forEach(countUp);
+      revealObs.unobserve(e.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('[data-reveal],[data-stagger]').forEach(function(el){ revealObs.observe(el); });
+
+  // Hero figures count up after the load sequence starts
+  setTimeout(function(){ document.querySelectorAll('.figures .count').forEach(countUp); }, reduce ? 0 : 450);
+
+  // Nav border and shadow once the page has scrolled
+  var nav = document.getElementById('nav');
+  new IntersectionObserver(function(entries){
+    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
+  }).observe(document.getElementById('sentinel'));
+
+  // Highlight the nav link for the section in view
+  var links = {};
+  document.querySelectorAll('.nav-links a[href^="#"]:not(.btn)').forEach(function(a){ links[a.getAttribute('href').slice(1)] = a; });
+  var spy = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var a = links[e.target.id];
+      if (!e.isIntersecting) return;
+      Object.keys(links).forEach(function(k){ links[k].classList.remove('active'); });
+      if (a) {
+        a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('section[id], header.hero').forEach(function(s){ spy.observe(s); });
+})();
+</script>
 </body>
 </html>
