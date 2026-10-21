@@ -1,0 +1,1210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALT Case Study | Muhammad Shaban</title>
+<meta name="description" content="How I took a new software studio from its first post to 374 LinkedIn followers in ten weeks, and built the outbound engine behind it.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zero to pipeline in ten weeks | ALT case study">
+<meta property="og:description" content="Brand, content, offer design and cold outreach for a new software studio: 374 LinkedIn followers, 12,800+ impressions and 1,300+ cold emails.">
+<meta property="og:url" content="https://muhammad-shaban.vercel.app/alt-case-study/">
+<meta property="og:image" content="https://muhammad-shaban.vercel.app/alt-case-study/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://muhammad-shaban.vercel.app/alt-case-study/og-image.png">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237B1E3A'/%3E%3Ctext x='32' y='44' font-family='Arial Black,Arial' font-weight='900' font-size='30' text-anchor='middle' fill='%23EEEEEE'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000000; --surface:rgba(238,238,238,.045); --raised:rgba(238,238,238,.085);
+  --text:#EEEEEE; --body:#DDDDDD; --muted:rgba(221,221,221,.62);
+  --accent:#7B1E3A; --accent-hi:#B23A5E; --accent-deep:#3F0C1C; --accent-soft:rgba(123,30,58,.28);
+  --rule:rgba(221,221,221,.13); --rule-strong:rgba(221,221,221,.26);
+  --radius:10px; --ease:cubic-bezier(.16,1,.3,1); --wide:"wdth" 125; --max:1200px;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Archivo,system-ui,sans-serif;font-size:1.0625rem;line-height:1.6;font-variant-numeric:tabular-nums;overflow-x:hidden}
+a{color:inherit} button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent-hi);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 2rem}
+@media (max-width:700px){.wrap{padding:0 1rem}}
+
+/* intro */
+.intro{display:none;position:fixed;inset:0;z-index:100;background:var(--bg);place-items:center;cursor:pointer}
+.js .intro.run{display:grid;animation:introFail .01s 4.5s forwards}
+.intro.out{transform:translateY(-100%);transition:transform .85s cubic-bezier(.76,0,.24,1)}
+.intro-inner{display:grid;justify-items:center;gap:1.1rem}
+.intro-mark{font-weight:900;font-variation-settings:var(--wide);font-size:3.25rem;line-height:1;letter-spacing:-.04em;perspective:600px}
+.intro-mark span{display:inline-block;animation:markIn .7s var(--ease) both}
+.intro-mark span:nth-child(2){animation-delay:.08s}
+.intro-mark span:nth-child(3){animation-delay:.16s;color:var(--accent-hi)}
+.intro-bar{width:220px;height:3px;background:var(--rule);border-radius:3px;overflow:hidden}
+.intro-bar i{display:block;height:100%;background:var(--accent-hi);transform:scaleX(0);transform-origin:left center}
+.intro-count{font-size:.9rem;color:var(--muted)}
+.intro-skip{font-size:.78rem;color:var(--muted);opacity:.7}
+@keyframes markIn{from{opacity:0;transform:translateY(60%) rotateX(-80deg)}to{opacity:1;transform:none}}
+@keyframes introFail{to{visibility:hidden;opacity:0}}
+
+/* progress + to-top */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;background:var(--accent-hi);transform-origin:0 50%;transform:scaleX(0);z-index:30;pointer-events:none}
+.totop{position:fixed;right:1.25rem;bottom:1.25rem;z-index:25;width:52px;height:52px;border-radius:50%;border:0;background:rgba(0,0,0,.85);cursor:pointer;display:grid;place-items:center;opacity:0;translate:0 14px;pointer-events:none;transition:opacity .35s var(--ease),translate .35s var(--ease),background-color .25s}
+.totop.on{opacity:1;translate:0;pointer-events:auto}
+.totop:hover{background:var(--accent)}
+.totop svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.totop circle{fill:none;stroke-width:2.5}
+.totop .bg{stroke:var(--rule-strong)}
+.totop .fg{stroke:var(--accent-hi);stroke-linecap:round}
+.totop b{position:relative;font-size:1.1rem;line-height:1}
+
+/* buttons */
+.btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;font-weight:600;letter-spacing:.01em;padding:.85rem 1.45rem;border-radius:var(--radius);border:1.5px solid var(--accent);white-space:nowrap;cursor:pointer;background:none;transition:transform .35s var(--ease),translate .12s ease,box-shadow .2s ease,color .3s var(--ease),border-color .3s var(--ease),background-color .3s var(--ease)}
+.btn.solid{background:var(--accent);color:var(--text);box-shadow:0 5px 0 var(--accent-deep)}
+.btn.solid::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--text);transform:scaleX(0);transform-origin:right center;transition:transform .45s var(--ease)}
+.btn.solid:hover::before{transform:scaleX(1);transform-origin:left center}
+.btn.solid:hover{border-color:var(--text);color:#000;box-shadow:0 5px 0 rgba(238,238,238,.35)}
+.btn.solid:active{translate:0 4px;box-shadow:0 1px 0 var(--accent-deep)}
+.btn.line{color:var(--text);border-color:var(--rule-strong);box-shadow:0 5px 0 var(--rule)}
+.btn.line:hover{border-color:var(--accent-hi);background:var(--accent-soft);box-shadow:0 5px 0 var(--accent-deep)}
+.btn.line:active{translate:0 4px;box-shadow:0 1px 0 var(--accent-deep)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(0,0,0,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,background-color .3s}
+nav.scrolled{border-color:var(--rule);background:rgba(0,0,0,.94)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem}
+.brand{font-weight:800;font-variation-settings:var(--wide);text-decoration:none;letter-spacing:-.01em;transition:color .25s}
+.brand:hover{color:var(--accent-hi)}
+.nav-links{display:flex;align-items:center;gap:1.6rem;list-style:none}
+.nav-links li{display:flex}
+.nav-links a:not(.btn){position:relative;text-decoration:none;font-size:.95rem;color:var(--muted);transition:color .25s;padding:.2rem 0}
+.nav-links a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:2px;border-radius:2px;background:var(--accent-hi);transform:scaleX(0);transform-origin:right center;transition:transform .35s var(--ease)}
+.nav-links a:not(.btn):hover,.nav-links a.active{color:var(--text)}
+.nav-links a:not(.btn):hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left center}
+.nav-links .btn{padding:.5rem 1rem;font-size:.92rem;box-shadow:0 4px 0 var(--accent-deep)}
+@media (max-width:960px){.nav-links li:not(:last-child){display:none}}
+
+/* hero */
+.hero{padding:3rem 0 3.25rem}
+.eyebrow{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .75rem;font-size:.92rem;color:var(--muted)}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;background:var(--accent);color:var(--text);padding:.15rem .6rem;border-radius:999px}
+.title{margin-top:1.1rem;font-weight:900;font-variation-settings:var(--wide);font-size:clamp(2.6rem,7.4vw,5.6rem);line-height:.98;letter-spacing:-.035em;perspective:900px}
+.title .hi{color:var(--accent-hi)}
+.title .w{display:inline-block;white-space:nowrap}
+.title .ch{display:inline-block;transform-origin:50% 100%;transition:translate .35s var(--ease),color .35s var(--ease)}
+.title .ch:hover{translate:0 -.07em;color:var(--accent-hi)}
+.title .hi .ch:hover{color:var(--text)}
+.hero-grid{margin-top:2.25rem;padding-top:2.25rem;border-top:1px solid var(--rule);display:grid;grid-template-columns:1.1fr 1fr;gap:3.5rem;align-items:start}
+.headline{font-size:clamp(1.3rem,2.3vw,1.9rem);line-height:1.25;font-weight:500;letter-spacing:-.015em;max-width:26ch;text-wrap:balance}
+.sub{margin-top:.9rem;color:var(--muted);max-width:46ch;font-size:1.08rem}
+.actions{margin-top:1.9rem;display:flex;gap:.85rem;flex-wrap:wrap}
+.figures{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+@media (max-width:860px){.hero{padding:2rem 0 2.5rem}.hero-grid{grid-template-columns:1fr;gap:2rem;margin-top:1.5rem;padding-top:1.5rem}}
+
+/* ticker */
+.ticker{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);overflow:hidden;background:var(--accent-deep)}
+.ticker-track{display:flex;width:max-content;animation:tick 38s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker ul{display:flex;list-style:none}
+.ticker li{display:flex;align-items:center;gap:.6rem;padding:.85rem 1.4rem;white-space:nowrap;font-weight:700;font-variation-settings:"wdth" 112;font-size:.98rem}
+.ticker li b{color:var(--text);font-weight:900}
+.ticker li span{color:rgba(238,238,238,.72);font-weight:500}
+.ticker li::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent-hi);margin-left:1.4rem}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* cards + figures */
+.card{position:relative;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .3s var(--ease),background-color .3s var(--ease)}
+.card:hover{border-color:var(--accent-hi);box-shadow:0 28px 50px -26px rgba(123,30,58,.75)}
+[data-tilt]{transform-style:preserve-3d}
+[data-tilt].tilting{transition:transform .12s linear,box-shadow .45s var(--ease),border-color .3s var(--ease),background-color .3s var(--ease)}
+.fig{padding:1.25rem 1.35rem;border-top:3px solid var(--accent-hi)}
+.fig.hot{background:var(--accent);border-color:var(--accent-hi)}
+.fig.hot dd{color:rgba(238,238,238,.85)}
+.fig dt{font-weight:800;font-variation-settings:"wdth" 112;font-size:clamp(1.9rem,3.2vw,2.7rem);line-height:1;color:var(--text);letter-spacing:-.02em}
+.fig dd{margin-top:.45rem;font-size:.95rem;color:var(--muted)}
+@media (max-width:860px){.fig{padding:1.1rem}.fig dd{font-size:.9rem}}
+
+/* sections */
+section{padding:4.5rem 0;border-top:1px solid var(--rule);scroll-margin-top:68px}
+.ticker + section{border-top:0}
+.kicker{font-size:.85rem;font-weight:700;color:var(--accent-hi);letter-spacing:.04em;text-transform:uppercase;margin-bottom:.7rem}
+.sec-title{font-weight:900;font-variation-settings:var(--wide);font-size:clamp(1.9rem,4vw,3rem);line-height:1.02;letter-spacing:-.03em}
+.sec-lead{margin-top:.8rem;color:var(--muted);max-width:62ch}
+.sec-body{margin-top:2.25rem}
+.sec-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1rem 2rem}
+@media (max-width:860px){section{padding:3.25rem 0}.sec-body{margin-top:1.75rem}}
+
+/* engagement card */
+.eng{display:grid;grid-template-columns:repeat(5,1fr);padding:0;overflow:hidden}
+.eng div{padding:1.15rem 1.3rem;border-right:1px solid var(--rule)}
+.eng div:last-child{border-right:0}
+.eng dt{font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.eng dd{margin-top:.3rem;font-weight:600;line-height:1.35}
+@media (max-width:960px){.eng{grid-template-columns:1fr 1fr}.eng div{border-bottom:1px solid var(--rule)}.eng div:nth-child(2n){border-right:0}.eng div:last-child{grid-column:1/-1;border-bottom:0}}
+@media (max-width:520px){.eng{grid-template-columns:1fr}.eng div{border-right:0}}
+
+/* segmented control */
+.seg{display:inline-flex;padding:3px;border:1px solid var(--rule);border-radius:999px;background:rgba(0,0,0,.4);flex-wrap:wrap}
+.seg button{border:0;background:none;padding:.38rem .85rem;border-radius:999px;font-size:.85rem;font-weight:600;color:var(--muted);cursor:pointer;transition:background-color .25s,color .25s}
+.seg button:hover{color:var(--text)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--text)}
+@media (max-width:560px){.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;width:100%;border-radius:12px}.seg button{padding:.45rem .3rem;font-size:.78rem;border-radius:9px}}
+
+/* flip cards: before and after */
+.zero{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;list-style:none;perspective:1400px}
+.zero li{display:grid}
+.flip{all:unset;box-sizing:border-box;display:grid;width:100%;cursor:pointer;transform-style:preserve-3d;transition:transform .9s var(--ease);transition-delay:calc(var(--i,0)*90ms)}
+.flip:focus-visible{outline:3px solid var(--accent-hi);outline-offset:3px;border-radius:var(--radius)}
+.flip.on{transform:rotateY(180deg)}
+.face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:1.4rem 1.4rem 1.5rem;border-radius:var(--radius);border:1px solid var(--rule);background:#0b0b0b;display:flex;flex-direction:column;transition:border-color .3s}
+.flip:hover .face{border-color:var(--accent-hi)}
+.face.back{transform:rotateY(180deg);background:var(--accent);border-color:var(--accent-hi)}
+.face .x{display:inline-grid;place-items:center;width:1.9rem;height:1.9rem;border-radius:50%;border:1.5px solid var(--accent-hi);color:var(--accent-hi);font-weight:800;margin-bottom:.9rem;font-size:.95rem}
+.face b{display:block;font-weight:900;font-variation-settings:var(--wide);font-size:1.35rem;letter-spacing:-.02em;line-height:1.1}
+.face .big{font-size:2.6rem;line-height:1}
+.face > span:not(.x){display:block;margin-top:.5rem;color:var(--muted);font-size:.98rem}
+.face.back > span{color:rgba(238,238,238,.86)}
+.face small{margin-top:auto;padding-top:1rem;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.face.back small{color:rgba(238,238,238,.75)}
+@media (max-width:760px){.zero{grid-template-columns:1fr}}
+
+/* replay */
+.replay{padding:1.5rem 1.6rem 1.4rem}
+.rp-top{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.play{all:unset;box-sizing:border-box;cursor:pointer;width:54px;height:54px;border-radius:50%;background:var(--accent);display:grid;place-items:center;box-shadow:0 4px 0 var(--accent-deep);transition:background-color .25s,translate .12s,box-shadow .12s;flex:none}
+.play:hover{background:var(--accent-hi)}
+.play:active{translate:0 3px;box-shadow:0 1px 0 var(--accent-deep)}
+.play:focus-visible{outline:3px solid var(--accent-hi);outline-offset:3px}
+.play svg{width:20px;height:20px;fill:var(--text)}
+.rp-date b{display:block;font-weight:900;font-variation-settings:var(--wide);font-size:clamp(1.5rem,3vw,2.1rem);line-height:1;letter-spacing:-.025em}
+.rp-date span{font-size:.9rem;color:var(--muted)}
+.rp-hint{margin-left:auto;font-size:.85rem;color:var(--muted)}
+.rp-grid{margin-top:1.4rem;display:grid;grid-template-columns:1.25fr 1fr;gap:1rem}
+@media (max-width:860px){.rp-grid{grid-template-columns:1fr}.rp-hint{display:none}.replay{padding:1.2rem 1rem}}
+.rp-stats{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.rs{padding:.95rem 1rem;border:1px solid var(--rule);border-radius:var(--radius);background:rgba(0,0,0,.35);transition:border-color .3s,background-color .3s;min-width:0}
+.rs.bump{border-color:var(--accent-hi);background:var(--accent-soft)}
+.rs small{display:block;font-size:.76rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;line-height:1.3}
+.rs b{display:block;margin-top:.35rem;font-weight:900;font-variation-settings:"wdth" 115;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1;letter-spacing:-.02em}
+.rs b.nil{font-size:1rem;font-weight:600;color:var(--muted);font-variation-settings:normal;letter-spacing:0;padding:.45rem 0 .2rem}
+.rs span{display:block;margin-top:.35rem;font-size:.8rem;color:var(--muted);min-height:1.2em}
+.rp-event{padding:1.2rem 1.25rem;border-radius:var(--radius);border:1px solid var(--accent-hi);background:var(--accent-soft);display:flex;flex-direction:column;align-items:flex-start;gap:.45rem;min-height:170px}
+.rp-event h3{font-size:1.3rem;font-weight:800;font-variation-settings:"wdth" 110;line-height:1.2}
+.rp-event p{color:var(--body);font-size:.97rem}
+.rp-event.swap{animation:evIn .5s var(--ease)}
+@keyframes evIn{from{opacity:0;translate:0 8px}to{opacity:1;translate:0}}
+.rp-track{position:relative;margin-top:1.6rem;padding-top:16px}
+.rp-rail{position:relative;height:6px;border-radius:3px;background:var(--rule)}
+.rp-fill{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:var(--accent-hi);width:0}
+.rp-dot{all:unset;position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#000;border:2px solid var(--rule-strong);box-sizing:border-box;cursor:pointer;transition:background-color .25s,border-color .25s,transform .25s var(--ease);z-index:2}
+.rp-dot:hover{transform:scale(1.35)}
+.rp-dot.past{border-color:var(--accent-hi);background:var(--accent)}
+.rp-dot.cur{background:var(--text);border-color:var(--text);transform:scale(1.3)}
+.rp-dot:focus-visible{outline:3px solid var(--accent-hi);outline-offset:3px}
+.rp-range{position:absolute;left:-11px;top:8px;width:calc(100% + 22px);height:22px;margin:0;background:none;-webkit-appearance:none;appearance:none;cursor:pointer;z-index:1}
+.rp-range:focus-visible{outline:none}
+.rp-range:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 4px var(--accent-hi)}
+.rp-range::-webkit-slider-runnable-track{height:22px;background:none}
+.rp-range::-moz-range-track{height:22px;background:none}
+.rp-range::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--text);border:5px solid var(--accent);box-shadow:0 0 0 4px rgba(0,0,0,.6)}
+.rp-range::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:var(--text);border:5px solid var(--accent)}
+.rp-months{position:relative;height:1.4rem;margin-top:.7rem;font-size:.8rem;color:var(--muted)}
+.rp-months span{position:absolute;translate:-50% 0;white-space:nowrap}
+.rp-months span:first-child{translate:0 0}
+.rp-months span:last-child{translate:-100% 0}
+
+/* growth layout */
+.split{display:grid;grid-template-columns:1.65fr 1fr;gap:1rem;align-items:stretch}
+@media (max-width:960px){.split{grid-template-columns:1fr}}
+.chart-card{padding:1.35rem 1.4rem 1.1rem;display:flex;flex-direction:column;min-width:0}
+.chart-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:.75rem 1rem}
+.chart-head h3{font-size:1.05rem;font-weight:700;line-height:1.3}
+.chart-head p{font-size:.9rem;color:var(--muted);margin-top:.15rem}
+.chart{position:relative;margin-top:1rem;flex:1;min-height:240px}
+.chart svg{display:block;width:100%;height:100%;overflow:visible;touch-action:pan-y}
+.chart .grid line{stroke:var(--rule)}
+.chart .axis text{fill:var(--muted);font-size:12px;font-family:Archivo,system-ui,sans-serif}
+.chart .line{fill:none;stroke:var(--accent-hi);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.chart .area{fill:var(--accent);opacity:.22}
+.chart .pt{fill:#000;stroke:var(--accent-hi);stroke-width:2}
+.chart .pt.on{fill:var(--accent-hi)}
+.chart .lbl{fill:var(--text);font-size:13px;font-weight:700;font-family:Archivo,system-ui,sans-serif}
+.chart .note{fill:var(--muted);font-size:11.5px;font-family:Archivo,system-ui,sans-serif}
+.chart .bar{fill:var(--raised);transition:fill .25s}
+.chart .bar.hot{fill:var(--accent)}
+.chart .bar:hover{fill:var(--accent-hi)}
+.chart .guide{stroke:var(--rule-strong);stroke-dasharray:3 4;opacity:0}
+.chart .guide.on{opacity:1}
+.tip{position:absolute;pointer-events:none;background:#111;border:1px solid var(--accent-hi);border-radius:8px;padding:.45rem .65rem;font-size:.85rem;line-height:1.35;white-space:nowrap;transform:translate(-50%,calc(-100% - 12px));opacity:0;transition:opacity .15s;z-index:2}
+.tip.on{opacity:1}
+.tip b{display:block;font-size:1rem}
+.tip span{color:var(--muted)}
+.chart-foot{margin-top:.6rem;font-size:.85rem;color:var(--muted)}
+.stack{display:grid;gap:.75rem;align-content:start}
+.mini{padding:1.1rem 1.25rem;border-left:3px solid var(--accent-hi)}
+.mini dt{font-weight:800;font-variation-settings:"wdth" 112;font-size:2rem;line-height:1;letter-spacing:-.02em}
+.mini dd{margin-top:.4rem;font-size:.93rem;color:var(--muted)}
+.mini dd strong{color:var(--text);font-weight:600}
+
+/* content system */
+.content-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media (max-width:860px){.content-grid{grid-template-columns:1fr}}
+.panel{padding:1.5rem 1.6rem}
+.panel h3{font-size:1.05rem;font-weight:700}
+.panel > p{margin-top:.5rem;color:var(--muted);font-size:.97rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem;list-style:none}
+.chips li{padding:.4rem .8rem;border:1px solid var(--rule-strong);border-radius:999px;font-size:.9rem;font-weight:600;transition:border-color .25s,background-color .25s,translate .3s var(--ease)}
+.chips li:hover{border-color:var(--accent-hi);background:var(--accent-soft);translate:0 -2px}
+.chips.prod li{font-weight:800;font-variation-settings:"wdth" 115;letter-spacing:.02em}
+.hash{font-weight:900;font-variation-settings:var(--wide);font-size:clamp(1.15rem,2.6vw,1.9rem);letter-spacing:-.02em;margin-top:.9rem;word-break:break-word;color:var(--accent-hi);min-height:1.3em;cursor:default}
+.post{margin-top:1rem;border:1px solid var(--rule);border-radius:var(--radius);padding:1.1rem 1.2rem;background:rgba(0,0,0,.45);transition:transform .45s var(--ease),border-color .3s}
+.post:hover{border-color:var(--accent-hi)}
+.post-top{display:flex;align-items:center;gap:.7rem}
+.logo{width:40px;height:40px;border-radius:8px;background:var(--accent);display:grid;place-items:center;font-weight:900;font-variation-settings:var(--wide);font-size:.85rem;letter-spacing:-.02em;flex:none}
+.post-top b{display:block;font-size:.95rem;line-height:1.2}
+.post-top span{font-size:.82rem;color:var(--muted)}
+.post q{display:block;margin-top:.85rem;font-size:1.25rem;font-weight:700;line-height:1.3;quotes:"\201C" "\201D"}
+.post p{margin-top:.5rem;font-size:.88rem;color:var(--muted)}
+.tagline{margin-top:1rem;font-size:1.15rem;font-weight:600;line-height:1.35}
+.kv{margin-top:1rem;display:grid;grid-template-columns:auto 1fr;gap:.45rem 1.1rem;font-size:.95rem}
+.kv dt{color:var(--muted)}
+
+/* offer */
+.alto{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}
+.tier{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;padding:1.3rem 1.3rem 1.4rem;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);min-height:220px;transition:transform .45s var(--ease),border-color .3s,background-color .3s,box-shadow .45s var(--ease)}
+.tier:hover{border-color:var(--rule-strong)}
+.tier:focus-visible{outline:3px solid var(--accent-hi);outline-offset:3px}
+.tier[aria-pressed="true"]{background:var(--accent);border-color:var(--accent-hi);box-shadow:0 28px 50px -26px rgba(123,30,58,.9)}
+.tier .ltr{font-weight:900;font-variation-settings:var(--wide);font-size:clamp(3.2rem,6vw,4.6rem);line-height:.9;letter-spacing:-.04em;color:var(--accent-hi);transition:color .3s,translate .5s var(--ease)}
+.tier[aria-pressed="true"] .ltr{color:var(--text);translate:0 -4px}
+.tier .nm{margin-top:.8rem;font-weight:800;font-size:1.15rem;font-variation-settings:"wdth" 112}
+.tier .sc{margin-top:.35rem;font-size:.95rem;color:var(--muted);line-height:1.45}
+.tier[aria-pressed="true"] .sc{color:rgba(238,238,238,.86)}
+.tier .size{margin-top:auto;padding-top:1rem;display:flex;gap:4px}
+.tier .size i{height:6px;flex:1;border-radius:3px;background:var(--rule);transition:background-color .3s}
+.tier .size i.f{background:var(--accent-hi)}
+.tier[aria-pressed="true"] .size i.f{background:var(--text)}
+.auto-bar{height:2px;background:var(--rule);border-radius:2px;margin-top:.6rem;overflow:hidden}
+.auto-bar i{display:block;height:100%;background:var(--accent-hi);transform:scaleX(0);transform-origin:left center}
+.auto-bar.run i{animation:fillx 3.2s linear forwards}
+@keyframes fillx{to{transform:scaleX(1)}}
+@media (max-width:960px){.alto{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.alto{grid-template-columns:1fr}.tier{min-height:0}}
+.scale-note{display:flex;justify-content:space-between;margin-top:.6rem;font-size:.85rem;color:var(--muted)}
+.method{margin-top:1.5rem;display:grid;grid-template-columns:repeat(4,1fr);list-style:none;gap:5px}
+.method li{background:var(--raised);padding:1rem 1.6rem 1rem 2.2rem;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%,18px 50%);transition:background-color .3s}
+.method li:first-child{clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%);padding-left:1.25rem}
+.method li.lit{background:var(--accent)}
+.method small{display:block;font-size:.78rem;color:var(--muted);font-weight:600}
+.method li.lit small{color:rgba(238,238,238,.8)}
+.method strong{font-weight:800;font-variation-settings:"wdth" 110;font-size:1.05rem}
+@media (max-width:760px){.method{grid-template-columns:1fr 1fr}.method li,.method li:first-child{clip-path:none;padding:.9rem 1.1rem;border-radius:8px}}
+.bul{margin-top:1.5rem;display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;list-style:none}
+.bul li{padding:1rem 1.15rem 1rem 2.6rem;position:relative;font-size:.97rem}
+.bul li::before{content:"";position:absolute;left:1.1rem;top:1.45rem;width:.6rem;height:.6rem;border-radius:2px;background:var(--accent-hi)}
+@media (max-width:760px){.bul{grid-template-columns:1fr}}
+
+/* outbound */
+.funnel{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;list-style:none;margin-top:1rem}
+.funnel li{padding:1.15rem 1.5rem 1.2rem 2.1rem;background:var(--raised);clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%,18px 50%);transition:background-color .3s}
+.funnel li:hover{background:rgba(238,238,238,.14)}
+.funnel li:first-child{clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%);padding-left:1.25rem;background:var(--accent)}
+.funnel b{display:block;font-weight:900;font-variation-settings:"wdth" 115;font-size:2rem;line-height:1;letter-spacing:-.02em}
+.funnel span{display:block;margin-top:.35rem;font-size:.9rem;color:var(--muted)}
+.funnel li:first-child span{color:rgba(238,238,238,.85)}
+@media (max-width:860px){.funnel{grid-template-columns:1fr 1fr}.funnel li,.funnel li:first-child{clip-path:none;border-radius:8px;padding:1rem 1.15rem}}
+.tools{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:1rem}
+
+/* campaigns */
+.camps{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;list-style:none}
+.camps li{padding:1.2rem 1.25rem 1.3rem;display:flex;flex-direction:column;gap:.45rem}
+.camps li[hidden]{display:none}
+.camps li.pop{animation:pop .55s var(--ease) backwards;animation-delay:calc(var(--j,0)*55ms)}
+@keyframes pop{from{opacity:0;scale:.94;translate:0 10px}to{opacity:1;scale:1;translate:0}}
+.camps .ch{font-size:.78rem;font-weight:700;color:var(--accent-hi);text-transform:uppercase;letter-spacing:.05em}
+.camps h3{font-size:1.08rem;font-weight:800;font-variation-settings:"wdth" 108;line-height:1.25}
+.camps p{font-size:.93rem;color:var(--muted)}
+.collat{margin-top:1rem;padding:1.15rem 1.3rem;font-size:.95rem;color:var(--body)}
+.collat b{color:var(--text)}
+.count-note{font-size:.88rem;color:var(--muted);margin-top:.8rem}
+
+/* career */
+.stages{display:grid;grid-template-columns:repeat(4,1fr);list-style:none;gap:5px}
+.stage button{all:unset;box-sizing:border-box;cursor:pointer;display:block;width:100%;height:100%;padding:1rem 1.6rem 1rem 2.2rem;background:var(--raised);clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%,18px 50%);transition:background-color .3s var(--ease),transform .45s var(--ease)}
+.stage:first-child button{clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%);padding-left:1.25rem}
+.stage button:hover{background:rgba(238,238,238,.14);transform:translateY(-3px)}
+.stage button:focus-visible{outline:3px solid var(--accent-hi);outline-offset:-3px}
+.stage button[aria-selected="true"]{background:var(--accent)}
+.stage strong{display:block;font-weight:800;font-variation-settings:"wdth" 110;font-size:1.05rem;line-height:1.2}
+.stage span{display:block;font-size:.88rem;color:var(--muted);margin-top:.2rem}
+.stage button[aria-selected="true"] span{color:rgba(238,238,238,.82)}
+@media (max-width:860px){.stages{grid-template-columns:1fr;gap:3px}.stage button,.stage:first-child button{clip-path:polygon(0 0,100% 0,100% calc(100% - 10px),50% 100%,0 calc(100% - 10px));padding:.9rem 1.25rem 1.4rem}.stage:last-child button{clip-path:none;padding-bottom:.9rem}}
+.role{margin-top:1rem;padding:1.6rem 1.75rem;display:grid;grid-template-columns:1fr 1.4fr;gap:1.5rem 2.5rem}
+.role-co{font-weight:900;font-variation-settings:var(--wide);font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.05;letter-spacing:-.025em}
+.role-meta{margin-top:.4rem;color:var(--muted);font-size:.95rem}
+.role ul{list-style:none;display:grid;gap:.6rem}
+.role li{padding-left:1.4rem;position:relative}
+.role li::before{content:"";position:absolute;left:0;top:.62em;width:.55rem;height:2px;background:var(--accent-hi)}
+.role.enter li{animation:evIn .5s var(--ease) backwards;animation-delay:calc(var(--k,0)*70ms)}
+@media (max-width:760px){.role{grid-template-columns:1fr;padding:1.3rem}}
+.record{margin-top:1rem;display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}
+@media (max-width:560px){.record{grid-template-columns:1fr}}
+
+/* contact */
+.cta-title{font-weight:900;font-variation-settings:var(--wide);font-size:clamp(2.2rem,6vw,4.5rem);line-height:1;letter-spacing:-.035em;max-width:16ch}
+.cta-title .hi{color:var(--accent-hi)}
+.links{margin-top:2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;list-style:none}
+.links a,.links button{all:unset;box-sizing:border-box;cursor:pointer;display:block;width:100%;height:100%;padding:1.1rem 1.2rem;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);transition:border-color .3s,background-color .3s,transform .35s var(--ease)}
+.links a:hover,.links button:hover{border-color:var(--accent-hi);background:var(--accent-soft);transform:translateY(-3px)}
+.links a:focus-visible,.links button:focus-visible{outline:3px solid var(--accent-hi);outline-offset:3px}
+.links small{display:block;font-size:.8rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.links b{display:block;margin-top:.3rem;font-weight:600;word-break:break-all}
+@media (max-width:960px){.links{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.links{grid-template-columns:1fr}}
+footer{border-top:1px solid var(--rule);padding:2rem 0 2.5rem;font-size:.88rem;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+footer p{max-width:70ch}
+
+/* motion */
+@media (prefers-reduced-motion:no-preference){
+  .js [data-reveal]{opacity:0;translate:0 26px;transition:opacity .9s var(--ease),translate .9s var(--ease)}
+  .js [data-reveal].in{opacity:1;translate:0}
+  .js [data-stagger] > *{opacity:0;translate:0 22px;transition:opacity .8s var(--ease) calc(var(--i,0)*75ms),translate .8s var(--ease) calc(var(--i,0)*75ms),transform .45s var(--ease),box-shadow .45s var(--ease),background-color .3s var(--ease),border-color .3s var(--ease)}
+  .js [data-stagger].in > *{opacity:1;translate:0}
+  .js .title .ch{opacity:0;translate:0 .35em;rotate:x -80deg}
+  .js.ready .title .ch{opacity:1;translate:0;rotate:x 0deg;transition:opacity .7s var(--ease),translate .7s var(--ease),rotate .7s var(--ease),color .35s var(--ease);transition-delay:calc(var(--c,0)*28ms)}
+  .js.ready.settled .title .ch{transition:translate .35s var(--ease),color .35s var(--ease);transition-delay:0s}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .ticker-track{animation:none;flex-wrap:wrap;width:auto}
+  .ticker ul + ul{display:none}
+  .flip{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-inner">
+    <div class="intro-mark"><span>A</span><span>L</span><span>T</span></div>
+    <div class="intro-bar"><i id="introBar"></i></div>
+    <div class="intro-count" id="introCount">0%</div>
+    <div class="intro-skip">Click to skip</div>
+  </div>
+</div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<button class="totop" id="totop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 52 52" aria-hidden="true"><circle class="bg" cx="26" cy="26" r="23"/><circle class="fg" id="ring" cx="26" cy="26" r="23"/></svg>
+  <b aria-hidden="true">&uarr;</b>
+</button>
+
+<nav id="nav">
+  <div class="wrap">
+    <a class="brand" href="/">Muhammad Shaban</a>
+    <ul class="nav-links">
+      <li><a href="/">Back to portfolio</a></li>
+      <li><a href="#replay">Replay</a></li>
+      <li><a href="#growth">Growth</a></li>
+      <li><a href="#offer">Offer</a></li>
+      <li><a href="#outbound">Outbound</a></li>
+      <li><a href="#record">Record</a></li>
+      <li><a class="btn solid" href="#contact" data-magnet>Hire me</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow"><span class="tag">Case study</span> Anti Linear Technologies · Aug to Oct 2026</p>
+    <h1 class="title" id="title">Zero to pipeline in <span class="hi">ten weeks</span>.</h1>
+    <div class="hero-grid">
+      <div>
+        <p class="headline">I took a new software studio from its first post to 374 LinkedIn followers in ten weeks, and built the outbound engine behind it.</p>
+        <p class="sub">Brand, content, offer design and cold outreach, run by one BD lead with a two-person research team.</p>
+        <div class="actions">
+          <a class="btn solid" href="#replay" data-magnet>Replay the ten weeks</a>
+          <a class="btn line" href="#contact" data-magnet>Work with me</a>
+        </div>
+      </div>
+      <dl class="figures" data-stagger>
+        <div class="card fig hot" data-tilt><dt data-count="374">374</dt><dd>LinkedIn followers in ten weeks</dd></div>
+        <div class="card fig" data-tilt><dt data-count="12800" data-suf="+">12,800+</dt><dd>LinkedIn impressions in six weeks</dd></div>
+        <div class="card fig" data-tilt><dt data-count="8.3" data-dec="1" data-suf="x">8.3x</dt><dd>Meta interactions in four weeks</dd></div>
+        <div class="card fig" data-tilt><dt data-count="1300" data-suf="+">1,300+</dt><dd>Cold emails sent in one month</dd></div>
+      </dl>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-label="Headline results">
+  <div class="ticker-track">
+    <ul>
+      <li><b>374</b><span>LinkedIn followers</span></li>
+      <li><b>4.1x</b><span>follower growth</span></li>
+      <li><b>12,843</b><span>impressions in six weeks</span></li>
+      <li><b>8.3x</b><span>Meta interactions</span></li>
+      <li><b>1,300+</b><span>cold emails in a month</span></li>
+      <li><b>2</b><span>C-level meetings</span></li>
+      <li><b>2</b><span>proposals</span></li>
+      <li><b>ALTO</b><span>four-tier offer</span></li>
+    </ul>
+    <ul aria-hidden="true">
+      <li><b>374</b><span>LinkedIn followers</span></li>
+      <li><b>4.1x</b><span>follower growth</span></li>
+      <li><b>12,843</b><span>impressions in six weeks</span></li>
+      <li><b>8.3x</b><span>Meta interactions</span></li>
+      <li><b>1,300+</b><span>cold emails in a month</span></li>
+      <li><b>2</b><span>C-level meetings</span></li>
+      <li><b>2</b><span>proposals</span></li>
+      <li><b>ALTO</b><span>four-tier offer</span></li>
+    </ul>
+  </div>
+</div>
+
+<section id="engagement" aria-label="Engagement">
+  <div class="wrap">
+    <dl class="card eng" data-reveal>
+      <div><dt>Client</dt><dd>Anti Linear Technologies, a software studio</dd></div>
+      <div><dt>Role</dt><dd>Business Development Manager</dd></div>
+      <div><dt>Window</dt><dd>11 Aug to 21 Oct 2026</dd></div>
+      <div><dt>Scope</dt><dd>Brand, content, offer, outbound</dd></div>
+      <div><dt>Tools</dt><dd>LinkedIn, Meta, Apollo, Dripify, Campaign Manager</dd></div>
+    </dl>
+
+    <div class="sec-body">
+      <div class="sec-row">
+        <div>
+          <p class="kicker">Before and after</p>
+          <h2 class="sec-title">A new studio with nothing to sell from.</h2>
+          <p class="sec-lead">Flip a card, or switch the date, to see where each gap stood ten weeks later.</p>
+        </div>
+        <div class="seg" role="group" aria-label="Show the state on" id="flipSeg">
+          <button type="button" data-v="0" aria-pressed="true">11 Aug</button>
+          <button type="button" data-v="1" aria-pressed="false">21 Oct</button>
+        </div>
+      </div>
+      <ul class="zero sec-body" id="zero">
+        <li><button class="flip" type="button" aria-pressed="false" style="--i:0">
+          <span class="face front"><span class="x" aria-hidden="true">0</span><b>No audience</b><span>The company page published its first post on 11 Aug.</span><small>11 Aug 2026</small></span>
+          <span class="face back"><b class="big">374</b><span>LinkedIn followers on the live page, after 12,800+ impressions in the first six weeks.</span><small>21 Oct 2026</small></span>
+        </button></li>
+        <li><button class="flip" type="button" aria-pressed="false" style="--i:1">
+          <span class="face front"><span class="x" aria-hidden="true">0</span><b>No packaged offer</b><span>Nothing a buyer could pick, price and start on.</span><small>11 Aug 2026</small></span>
+          <span class="face back"><b class="big">ALTO</b><span>Four productized tiers, one delivery method, and a paid consult to qualify buyers.</span><small>21 Oct 2026</small></span>
+        </button></li>
+        <li><button class="flip" type="button" aria-pressed="false" style="--i:2">
+          <span class="face front"><span class="x" aria-hidden="true">0</span><b>No outbound motion</b><span>No lists, no sequences, no pipeline reporting.</span><small>11 Aug 2026</small></span>
+          <span class="face back"><b class="big">1,300+</b><span>Cold emails in September, leading to 2 C-level meetings and 2 proposals by 25 Sep.</span><small>21 Oct 2026</small></span>
+        </button></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="replay">
+  <div class="wrap">
+    <p class="kicker">Replay</p>
+    <h2 class="sec-title" data-reveal>Ten weeks, day by day.</h2>
+    <p class="sec-lead" data-reveal>Press play or drag the timeline. Each number is the last figure on record at that date, so it holds flat between reports.</p>
+    <div class="card replay sec-body" data-reveal>
+      <div class="rp-top">
+        <button class="play" id="rpPlay" type="button" aria-label="Play the timeline">
+          <svg viewBox="0 0 24 24" id="rpIcon" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+        </button>
+        <div class="rp-date"><b id="rpDate">11 Aug 2026</b><span id="rpDay">Day 1 of 72</span></div>
+        <p class="rp-hint">Drag, click a dot, or use the arrow keys</p>
+      </div>
+      <div class="rp-grid">
+        <div class="rp-stats">
+          <div class="rs" data-m="followers"><small>LinkedIn followers</small><b>0</b><span></span></div>
+          <div class="rs" data-m="impressions"><small>LinkedIn impressions</small><b>0</b><span></span></div>
+          <div class="rs" data-m="meta"><small>Meta interactions</small><b>0</b><span></span></div>
+          <div class="rs" data-m="emails"><small>Cold emails, that week</small><b>0</b><span></span></div>
+        </div>
+        <div class="rp-event" id="rpEvent" aria-live="polite">
+          <span class="tag" id="rpTag">Launch</span>
+          <h3 id="rpTitle">First post on the company page</h3>
+          <p id="rpText"></p>
+        </div>
+      </div>
+      <div class="rp-track">
+        <div class="rp-rail" id="rpRail"><div class="rp-fill" id="rpFill"></div></div>
+        <input class="rp-range" id="rpRange" type="range" min="0" max="71" step="1" value="0" aria-label="Timeline day">
+        <div class="rp-months" id="rpMonths"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="growth">
+  <div class="wrap">
+    <p class="kicker">LinkedIn growth</p>
+    <h2 class="sec-title" data-reveal>91 to 374 followers in eight weeks.</h2>
+    <p class="sec-lead" data-reveal>Impressions grew by about 2,200 every week for four straight weeks. Followers then doubled again in the 26 days after the last weekly report.</p>
+
+    <div class="split sec-body">
+      <div class="card chart-card" data-reveal>
+        <div class="chart-head">
+          <div><h3 id="liTitle">Followers</h3><p id="liSub">Company page, 28 Aug to 21 Oct 2026</p></div>
+          <div class="seg" role="group" aria-label="LinkedIn metric" id="liSeg">
+            <button type="button" data-k="followers" aria-pressed="true">Followers</button>
+            <button type="button" data-k="impressions" aria-pressed="false">Impressions</button>
+            <button type="button" data-k="visitors" aria-pressed="false">Page visitors</button>
+          </div>
+        </div>
+        <div class="chart" id="liChart" role="img"></div>
+        <p class="chart-foot" id="liFoot"></p>
+      </div>
+      <dl class="stack" data-stagger>
+        <div class="card mini" data-tilt><dt data-count="4.1" data-dec="1" data-suf="x">4.1x</dt><dd>Follower growth, <strong>91 to 374</strong>, 28 Aug to 21 Oct</dd></div>
+        <div class="card mini" data-tilt><dt data-count="110" data-pre="+" data-suf="%">+110%</dt><dd>Page visitors in four weeks, <strong>172 to 361</strong></dd></div>
+        <div class="card mini" data-tilt><dt data-count="2200" data-pre="~">~2,200</dt><dd>New impressions a week, every week from 28 Aug to 25 Sep</dd></div>
+        <div class="card mini" data-tilt><dt data-count="108" data-pre="+" data-suf="%">+108%</dt><dd>Followers in 26 days after the last report, <strong>180 to 374</strong></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="meta">
+  <div class="wrap">
+    <p class="kicker">Meta: Facebook and Instagram</p>
+    <h2 class="sec-title" data-reveal>8.3x interactions in four weeks.</h2>
+    <p class="sec-lead" data-reveal>Followers doubled from 34 to 68 and interactions grew from 171 to 1,420 between 31 Aug and 25 Sep. Carousels and short motion reels did most of the work.</p>
+
+    <div class="split sec-body">
+      <div class="card chart-card" data-reveal>
+        <div class="chart-head">
+          <div><h3 id="metaTitle">Interactions, cumulative</h3><p id="metaSub">31 Aug to 25 Sep 2026</p></div>
+          <div class="seg" role="group" aria-label="Meta metric" id="metaSeg">
+            <button type="button" data-k="interactions" aria-pressed="true">Interactions</button>
+            <button type="button" data-k="visits" aria-pressed="false">30-day page visits</button>
+          </div>
+        </div>
+        <div class="chart" id="metaChart" role="img"></div>
+        <p class="chart-foot" id="metaFoot"></p>
+      </div>
+      <dl class="stack" data-stagger>
+        <div class="card mini" data-tilt><dt data-count="2" data-suf="x">2x</dt><dd>Meta followers in four weeks</dd></div>
+        <div class="card mini" data-tilt><dt data-count="13000" data-suf="+">13,000+</dt><dd>Meta views in a 30-day window</dd></div>
+        <div class="card mini" data-tilt><dt data-count="1422">1,422</dt><dd>Views on the top single carousel</dd></div>
+        <div class="card mini" data-tilt><dt data-count="790">790</dt><dd>Views on the first motion reel</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="content">
+  <div class="wrap">
+    <p class="kicker">Content system</p>
+    <h2 class="sec-title" data-reveal>35 posts, one voice, four products.</h2>
+    <p class="sec-lead" data-reveal>I set the brand line, built a hashtag series and gave every product its own posts and carousels. 35 posts went out on LinkedIn between 11 Aug and 8 Oct.</p>
+    <div class="content-grid sec-body" data-stagger>
+      <div class="card panel">
+        <h3>The brand</h3>
+        <p class="tagline">"Digital systems built around how your business actually runs."</p>
+        <dl class="kv">
+          <dt>Page</dt><dd>Verified LinkedIn company page, founded 2026</dd>
+          <dt>Services</dt><dd>Custom software and SaaS, web engineering, mobile apps, automations and AI pipelines, cloud migration and DevOps</dd>
+        </dl>
+        <h3 style="margin-top:1.4rem">Hashtag series</h3>
+        <p class="hash" id="hash" aria-label="#ALTomateYourWorkflow">#ALTomateYourWorkflow</p>
+        <h3 style="margin-top:1.4rem">Products featured</h3>
+        <ul class="chips prod"><li>MITS</li><li>JANUS</li><li>NearVendor</li><li>UP2D8</li></ul>
+      </div>
+      <div class="card panel">
+        <h3>Example: the top post by likes</h3>
+        <p>The opening line of the post that drew the most likes in the first two months.</p>
+        <div class="post" data-tilt>
+          <div class="post-top"><div class="logo" aria-hidden="true">ALT</div><div><b>Anti Linear Technologies</b><span>31 Aug 2026 · LinkedIn</span></div></div>
+          <q>You've grown revenue 3x.</q>
+          <p>Full post on the company page.</p>
+        </div>
+        <h3 style="margin-top:1.4rem">Formats that carried reach</h3>
+        <ul class="chips"><li>Carousels</li><li>Short motion reels</li><li>Product posts</li><li>Milestone story post</li><li>Group poll</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="offer">
+  <div class="wrap">
+    <p class="kicker">Offer design</p>
+    <h2 class="sec-title" data-reveal>I packaged the service so buyers could pick an entry point.</h2>
+    <p class="sec-lead" data-reveal>ALTO is four productized tiers, from a small automation to a full systems rebuild. Pick a tier to see its scope.</p>
+    <div class="sec-body">
+      <div class="alto" id="alto" role="group" aria-label="ALTO tiers">
+        <button class="tier" type="button" aria-pressed="false" data-tilt><span class="ltr">A</span><span class="nm">Automate</span><span class="sc">Workflow automation, a setup plus a monthly plan.</span><span class="size" aria-hidden="true"><i class="f"></i><i></i><i></i><i></i></span></button>
+        <button class="tier" type="button" aria-pressed="false" data-tilt><span class="ltr">L</span><span class="nm">Launch</span><span class="sc">A landing page or a full business website.</span><span class="size" aria-hidden="true"><i class="f"></i><i class="f"></i><i></i><i></i></span></button>
+        <button class="tier" type="button" aria-pressed="false" data-tilt><span class="ltr">T</span><span class="nm">Track</span><span class="sc">One ERP module for operations tracking.</span><span class="size" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span></button>
+        <button class="tier" type="button" aria-pressed="false" data-tilt><span class="ltr">O</span><span class="nm">Overhaul</span><span class="sc">A full rebuild of processes and systems.</span><span class="size" aria-hidden="true"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></span></button>
+      </div>
+      <div class="auto-bar" id="autoBar" aria-hidden="true"><i></i></div>
+      <div class="scale-note" aria-hidden="true"><span>Smallest entry point</span><span>Largest engagement</span></div>
+
+      <ol class="method" id="method" aria-label="Delivery method on every tier">
+        <li><small>Step 1</small><strong>Diagnose</strong></li>
+        <li><small>Step 2</small><strong>Design</strong></li>
+        <li><small>Step 3</small><strong>Deliver</strong></li>
+        <li><small>Step 4</small><strong>Sustain</strong></li>
+      </ol>
+
+      <ul class="bul" data-stagger>
+        <li class="card">A named acronym, <b>ALTO</b>, so prospects can place themselves before the first call.</li>
+        <li class="card">The same four-step delivery method on every tier, so scope reads the same at any size.</li>
+        <li class="card">Two price books: USD for international buyers and a local book for Pakistan, with rules for which applies.</li>
+        <li class="card">A paid consult fee that qualifies buyers before any scoping work, plus competitor research on Pakistani and US studios to set the price bands.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="outbound">
+  <div class="wrap">
+    <p class="kicker">Outbound engine</p>
+    <h2 class="sec-title" data-reveal>1,300+ cold emails in September, alongside the brand work.</h2>
+    <p class="sec-lead" data-reveal>Inbound and outbound ran together. By 25 Sep the pipeline held 2 meetings with US MD and CEO-level buyers and 2 proposals, inside the first six weeks.</p>
+    <div class="split sec-body">
+      <div class="card chart-card" data-reveal>
+        <div class="chart-head"><div><h3>Cold emails I sent, by week</h3><p>September 2026. Hover a bar for detail.</p></div></div>
+        <div class="chart" id="mailChart" role="img" aria-label="Cold emails sent per week: 374 in 7 to 11 Sep, 374 in 14 to 18 Sep, 605 in 21 to 25 Sep."></div>
+        <p class="chart-foot">The 605 week was a 200-lead real estate list on a multi-touch sequence, about three touches each.</p>
+      </div>
+      <div class="stack">
+        <div class="card panel" data-reveal>
+          <h3>How the motion is built</h3>
+          <p>Apollo for lists and sequences, Dripify for LinkedIn automation and the page-follow campaign.</p>
+          <div class="tools"><span class="tag">Apollo</span><span class="tag">Dripify</span><span class="tag">LinkedIn</span><span class="tag">Campaign Manager</span></div>
+          <p style="margin-top:1rem"><a href="/#playbook" style="color:var(--accent-hi);font-weight:600">Read my 9-step outbound playbook</a></p>
+        </div>
+      </div>
+    </div>
+    <ol class="funnel" data-stagger aria-label="Pipeline to 25 Sep 2026">
+      <li><b data-count="1300" data-suf="+">1,300+</b><span>Personalised cold emails</span></li>
+      <li><b data-count="3">3</b><span>Inbound leads from the services page</span></li>
+      <li><b data-count="2">2</b><span>Meetings with US MD and CEO-level buyers</span></li>
+      <li><b data-count="2">2</b><span>Proposals sent</span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="campaigns">
+  <div class="wrap">
+    <div class="sec-row">
+      <div>
+        <p class="kicker">Campaigns</p>
+        <h2 class="sec-title" data-reveal>Seven campaigns across four channels.</h2>
+        <p class="sec-lead" data-reveal>Each one tested a different way to put the studio in front of buyers. Filter by channel.</p>
+      </div>
+      <div class="seg" role="group" aria-label="Filter campaigns" id="campSeg">
+        <button type="button" data-f="all" aria-pressed="true">All</button>
+        <button type="button" data-f="li" aria-pressed="false">LinkedIn</button>
+        <button type="button" data-f="meta" aria-pressed="false">Meta</button>
+        <button type="button" data-f="paid" aria-pressed="false">Paid</button>
+        <button type="button" data-f="auto" aria-pressed="false">Automation</button>
+      </div>
+    </div>
+    <ul class="camps sec-body" id="camps" data-stagger>
+      <li class="card" data-tilt data-t="li meta"><span class="ch">LinkedIn and Meta</span><h3>#ALTomateYourWorkflow</h3><p>A hashtag series running across the product posts.</p></li>
+      <li class="card" data-tilt data-t="li meta"><span class="ch">LinkedIn and Meta</span><h3>Product content</h3><p>Posts and carousels for MITS, JANUS, NearVendor and UP2D8.</p></li>
+      <li class="card" data-tilt data-t="auto li"><span class="ch">Dripify</span><h3>Page-follow campaign</h3><p>Automated invites to follow the company page.</p></li>
+      <li class="card" data-tilt data-t="paid li"><span class="ch">LinkedIn Campaign Manager</span><h3>First LinkedIn ad</h3><p>$200 over 19 days, Website Visits objective, targeting the UK, UAE and Pakistan.</p></li>
+      <li class="card" data-tilt data-t="paid meta"><span class="ch">Facebook and Instagram</span><h3>Meta spend</h3><p>A $50 a week budget behind the carousels and reels.</p></li>
+      <li class="card" data-tilt data-t="li"><span class="ch">LinkedIn</span><h3>300-followers milestone</h3><p>A founder-style story post on 8 Oct, amplified by team reposts.</p></li>
+      <li class="card" data-tilt data-t="li"><span class="ch">LinkedIn group</span><h3>Sales group poll</h3><p>A post reworked as a poll for a sales management group.</p></li>
+    </ul>
+    <p class="count-note" id="campCount" aria-live="polite">Showing all 7 campaigns</p>
+    <p class="card collat" data-reveal><b>Collateral I produced:</b> two anonymized case studies (an enterprise client that cut its entities from 10 to 4, and a school that cut a daily admin task from a full day to under an hour), the ALTO offer document, competitor profiles and the BuildTrace product mockup.</p>
+  </div>
+</section>
+
+<section id="record">
+  <div class="wrap">
+    <p class="kicker">Career record</p>
+    <h2 class="sec-title" data-reveal>ALT is the latest result in a longer record.</h2>
+    <p class="sec-lead" data-reveal>I have worked every seat on a sales team, from booking meetings to closing deals to running the motion. Pick a role, or use the arrow keys.</p>
+    <div class="sec-body">
+      <ul class="stages" role="tablist" aria-label="Roles" id="stages">
+        <li class="stage"><button role="tab" aria-selected="false"><strong>SDR</strong><span>Karvel Consulting, 2024</span></button></li>
+        <li class="stage"><button role="tab" aria-selected="false"><strong>BD Associate</strong><span>AMBE Engineering, 2024</span></button></li>
+        <li class="stage"><button role="tab" aria-selected="false"><strong>Account Executive</strong><span>Remotir Limited, 2025</span></button></li>
+        <li class="stage"><button role="tab" aria-selected="true"><strong>BD Manager</strong><span>Anti Linear Technologies, 2026</span></button></li>
+      </ul>
+      <div class="card role" id="role" role="tabpanel" aria-live="polite"></div>
+      <dl class="record" data-stagger>
+        <div class="card fig" data-tilt><dt data-count="66" data-suf="%">66%</dt><dd>Conversation-to-meeting rate as an SDR</dd></div>
+        <div class="card fig" data-tilt><dt data-count="60" data-suf="%">60%</dt><dd>Meeting show rate</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <p class="kicker">Contact</p>
+    <h2 class="cta-title" data-reveal>Need this built for <span class="hi">your</span> pipeline?</h2>
+    <p class="sec-lead" data-reveal>I take Upwork contracts for B2B lead generation, LinkedIn page growth, outbound SDR work, sales ops and fractional BD. Send me your job post or an invite.</p>
+    <ul class="links" data-stagger>
+      <li><button type="button" id="copyEmail"><small id="copyLbl">Email, click to copy</small><b>m.shaban.idreesi@gmail.com</b></button></li>
+      <li><a href="https://linkedin.com/in/shab0n" target="_blank" rel="noopener"><small>LinkedIn</small><b>linkedin.com/in/shab0n</b></a></li>
+      <li><a href="https://wa.me/923225201380" target="_blank" rel="noopener"><small>WhatsApp</small><b>+92 322 5201380</b></a></li>
+      <li><a href="/"><small>Full portfolio</small><b>muhammad-shaban.vercel.app</b></a></li>
+    </ul>
+    <div class="actions">
+      <a class="btn solid" href="mailto:m.shaban.idreesi@gmail.com?subject=Upwork%20project" data-magnet>Email me about a project</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Sources: the live LinkedIn company page (as of 21 Oct 2026), weekly reports from 24 Aug to 25 Sep 2026, and my own sales record. Client and prospect names are withheld under NDA.</p>
+    <p>Muhammad Shaban, 2026</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var doc=document.documentElement;
+  doc.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer=window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  function $(s,r){return (r||document).querySelector(s)}
+  function $$(s,r){return [].slice.call((r||document).querySelectorAll(s))}
+
+  /* title: words and letters */
+  var title=$('#title'),ci=0;
+  (function split(node){
+    [].slice.call(node.childNodes).forEach(function(n){
+      if(n.nodeType===1){split(n);return}
+      if(n.nodeType!==3) return;
+      var frag=document.createDocumentFragment();
+      n.textContent.split(/(\s+)/).forEach(function(p){
+        if(!p) return;
+        if(/^\s+$/.test(p)){frag.appendChild(document.createTextNode(' '));return}
+        var w=document.createElement('span');w.className='w';
+        p.split('').forEach(function(c){var s=document.createElement('span');s.className='ch';s.textContent=c;s.style.setProperty('--c',ci++);w.appendChild(s)});
+        frag.appendChild(w);
+      });
+      node.replaceChild(frag,n);
+    });
+  })(title);
+  title.setAttribute('aria-label','Zero to pipeline in ten weeks.');
+
+  /* intro */
+  var intro=$('#intro'),seen=false;
+  try{seen=sessionStorage.getItem('altIntro')==='1'}catch(e){}
+  function start(){
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+      doc.classList.add('ready');
+      setTimeout(function(){doc.classList.add('settled')},ci*28+900);
+    })});
+  }
+  if(!reduce&&!seen){
+    intro.classList.add('run');
+    var bar=$('#introBar'),cnt=$('#introCount'),t0=performance.now(),dur=1250,done=false;
+    var finish=function(){
+      if(done) return;done=true;
+      try{sessionStorage.setItem('altIntro','1')}catch(e){}
+      intro.classList.add('out');
+      setTimeout(start,250);
+      setTimeout(function(){intro.style.display='none'},950);
+    };
+    (function step(n){
+      if(done) return;
+      var p=Math.min(1,(n-t0)/dur),e=1-Math.pow(1-p,3);
+      bar.style.transform='scaleX('+e+')';cnt.textContent=Math.round(e*100)+'%';
+      if(p<1) requestAnimationFrame(step); else setTimeout(finish,180);
+    })(t0);
+    intro.addEventListener('click',finish);
+    addEventListener('keydown',function k(e){if(e.key==='Escape'||e.key==='Enter'){finish();removeEventListener('keydown',k)}});
+  } else start();
+
+  /* scroll: progress, nav, to-top */
+  var prog=$('#progress'),nav=$('#nav'),totop=$('#totop'),ring=$('#ring'),C=2*Math.PI*23;
+  ring.style.strokeDasharray=C;
+  function onScroll(){
+    var h=doc.scrollHeight-innerHeight,p=h>0?scrollY/h:0;
+    prog.style.transform='scaleX('+p+')';
+    ring.style.strokeDashoffset=C*(1-p);
+    nav.classList.toggle('scrolled',scrollY>8);
+    totop.classList.toggle('on',scrollY>innerHeight*.8);
+  }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  totop.addEventListener('click',function(){scrollTo({top:0,behavior:reduce?'auto':'smooth'})});
+
+  var navLinks=$$('.nav-links a:not(.btn)');
+  var spyMap={replay:'replay',growth:'growth',meta:'growth',content:'growth',offer:'offer',outbound:'outbound',campaigns:'outbound',record:'record'};
+  var spy=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      navLinks.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+spyMap[e.target.id])});
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  $$('section[id]').forEach(function(s){spy.observe(s)});
+
+  /* count-up */
+  function fmt(v,dec){return dec?v.toFixed(dec):Math.round(v).toLocaleString('en-US')}
+  function countUp(el){
+    var to=parseFloat(el.dataset.count),dec=+(el.dataset.dec||0),pre=el.dataset.pre||'',suf=el.dataset.suf||'';
+    if(reduce){el.textContent=pre+fmt(to,dec)+suf;return}
+    var d=1400,s=performance.now();
+    (function step(n){var p=Math.min(1,(n-s)/d),e=1-Math.pow(1-p,4);el.textContent=pre+fmt(to*e,dec)+suf;if(p<1)requestAnimationFrame(step)})(s);
+  }
+
+  /* reveals */
+  $$('[data-stagger]').forEach(function(g){[].slice.call(g.children).forEach(function(c,i){c.style.setProperty('--i',i)})});
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('in');
+      $$('[data-count]',e.target).forEach(countUp);
+      io.unobserve(e.target);
+    });
+  },{threshold:.15});
+  $$('[data-reveal],[data-stagger]').forEach(function(el){io.observe(el)});
+
+  /* tilt + magnetic buttons (mouse only) */
+  if(finePointer&&!reduce){
+    $$('[data-tilt]').forEach(function(el){
+      el.addEventListener('pointermove',function(e){
+        var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+        el.classList.add('tilting');
+        el.style.transform='perspective(900px) rotateX('+(-y*7).toFixed(2)+'deg) rotateY('+(x*9).toFixed(2)+'deg)';
+      });
+      el.addEventListener('pointerleave',function(){el.classList.remove('tilting');el.style.transform=''});
+    });
+    $$('[data-magnet]').forEach(function(b){
+      b.addEventListener('pointermove',function(e){
+        var r=b.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);
+        b.style.transform='translate('+(dx*.18).toFixed(1)+'px,'+(dy*.28).toFixed(1)+'px)';
+      });
+      b.addEventListener('pointerleave',function(){b.style.transform=''});
+    });
+  }
+
+  /* before / after flip */
+  var flips=$$('.flip'),flipSeg=$('#flipSeg');
+  function syncSeg(){
+    var on=flips.every(function(f){return f.classList.contains('on')}),off=flips.every(function(f){return !f.classList.contains('on')});
+    $$('button',flipSeg).forEach(function(b){b.setAttribute('aria-pressed',(b.dataset.v==='1'&&on)||(b.dataset.v==='0'&&off))});
+  }
+  flips.forEach(function(f){f.addEventListener('click',function(){
+    f.style.transitionDelay='0ms';
+    var on=f.classList.toggle('on');f.setAttribute('aria-pressed',on);syncSeg();
+  })});
+  flipSeg.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;var on=b.dataset.v==='1';
+    flips.forEach(function(f){f.style.transitionDelay='';f.classList.toggle('on',on);f.setAttribute('aria-pressed',on)});syncSeg();
+  });
+
+  /* date helpers */
+  var MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function D(s){return new Date(s+'T00:00:00Z').getTime()}
+  function dlabel(s){var d=new Date(D(s));return d.getUTCDate()+' '+MON[d.getUTCMonth()]}
+  function num(v){return Math.round(v).toLocaleString('en-US')}
+
+  /* replay timeline */
+  var START='2026-08-11',LAST=71;
+  function dayOf(s){return Math.round((D(s)-D(START))/864e5)}
+  function dateOf(day){var d=new Date(D(START)+day*864e5);return d.getUTCDate()+' '+MON[d.getUTCMonth()]+' 2026'}
+  var SERIES={
+    followers:[['2026-08-28',91],['2026-09-25',180],['2026-10-08',300],['2026-10-21',374]],
+    impressions:[['2026-08-28',3982],['2026-09-04',6167],['2026-09-11',8330],['2026-09-18',10362],['2026-09-25',12843]],
+    meta:[['2026-08-31',171],['2026-09-04',387],['2026-09-11',788],['2026-09-18',1151],['2026-09-25',1420]],
+    emails:[['2026-09-11',374,'week of 7 to 11 Sep'],['2026-09-18',374,'week of 14 to 18 Sep'],['2026-09-25',605,'week of 21 to 25 Sep']]
+  };
+  var EVENTS=[
+    ['2026-08-11','Launch','First post on the company page','The studio starts from zero: no audience, no packaged offer, no outbound motion.'],
+    ['2026-08-28','Report','Day 15: 91 followers','The first report shows 3,982 impressions and 172 page visitors.'],
+    ['2026-08-31','Content','The top post by likes goes out','"You\'ve grown revenue 3x." Meta tracking starts at 34 followers and 171 interactions.'],
+    ['2026-09-04','Report','+2,185 impressions in a week','LinkedIn reaches 6,167 impressions. A Friday Meta post reaches 1,101 views.'],
+    ['2026-09-11','Outbound','374 cold emails in a week','The first motion reel reaches 790 views. Meta 30-day page visits jump from 68 to 1,164.'],
+    ['2026-09-18','Report','13,000+ Meta views in 30 days','Another 374 cold emails go out. LinkedIn passes 10,000 impressions.'],
+    ['2026-09-25','Pipeline','2 C-level meetings, 2 proposals','605 emails to a 200-lead real estate list, 3 inbound leads from the services page, and 12,843 impressions.'],
+    ['2026-10-08','Milestone','300 followers','A founder-style milestone post, amplified by team reposts.'],
+    ['2026-10-21','Live','374 followers on the live page','4.1x the day-15 count. Followers doubled in the 26 days after the last report.']
+  ];
+  var range=$('#rpRange'),fill=$('#rpFill'),rail=$('#rpRail'),months=$('#rpMonths'),play=$('#rpPlay'),icon=$('#rpIcon');
+  var evBox=$('#rpEvent'),cur=0,curEv=-1,shown={},timer=null;
+  var ICON_PLAY='<path d="M7 4.5v15l13-7.5z"/>',ICON_PAUSE='<path d="M6 4.5h4.2v15H6zM13.8 4.5H18v15h-4.2z"/>',ICON_AGAIN='<path d="M12 5V1.5L7 6.5l5 5V8a5 5 0 1 1-5 5H4a8 8 0 1 0 8-8z"/>';
+  [['2026-08-11','11 Aug'],['2026-09-01','1 Sep'],['2026-10-01','1 Oct'],['2026-10-21','21 Oct']].forEach(function(m){
+    var s=document.createElement('span');s.textContent=m[1];s.style.left=(dayOf(m[0])/LAST*100)+'%';months.appendChild(s);
+  });
+  var dots=EVENTS.map(function(ev){
+    var b=document.createElement('button');b.type='button';b.className='rp-dot';b.style.left=(dayOf(ev[0])/LAST*100)+'%';
+    b.setAttribute('aria-label',dlabel(ev[0])+': '+ev[2]);b.title=dlabel(ev[0])+': '+ev[2];
+    b.addEventListener('click',function(){stop();setDay(dayOf(ev[0]))});
+    rail.appendChild(b);return b;
+  });
+  function tween(el,from,to){
+    if(reduce||from===to){el.textContent=num(to);return}
+    var s=performance.now();
+    (function step(n){var p=Math.min(1,(n-s)/450),e=1-Math.pow(1-p,3);el.textContent=num(from+(to-from)*e);if(p<1)requestAnimationFrame(step)})(s);
+  }
+  function setDay(day){
+    day=Math.max(0,Math.min(LAST,day|0));
+    range.value=day;cur=day;
+    fill.style.width=(day/LAST*100)+'%';
+    $('#rpDate').textContent=dateOf(day);
+    $('#rpDay').textContent='Day '+(day+1)+' of '+(LAST+1);
+    Object.keys(SERIES).forEach(function(k){
+      var box=$('.rs[data-m="'+k+'"]'),b=$('b',box),sp=$('span',box),pt=null;
+      SERIES[k].forEach(function(p){if(dayOf(p[0])<=day)pt=p});
+      if(!pt){b.classList.add('nil');b.textContent='Not reported yet';sp.textContent='';shown[k]=0;return}
+      b.classList.remove('nil');
+      if(shown[k]!==pt[1]){
+        tween(b,shown[k]||0,pt[1]);shown[k]=pt[1];
+        box.classList.add('bump');setTimeout(function(){box.classList.remove('bump')},600);
+      }
+      sp.textContent=pt[2]?pt[2]:'as of '+dlabel(pt[0]);
+    });
+    var ei=0;EVENTS.forEach(function(ev,i){if(dayOf(ev[0])<=day)ei=i});
+    dots.forEach(function(d,i){d.classList.toggle('past',i<ei);d.classList.toggle('cur',i===ei)});
+    if(ei!==curEv){
+      curEv=ei;var ev=EVENTS[ei];
+      $('#rpTag').textContent=ev[1];$('#rpTitle').textContent=ev[2];$('#rpText').textContent=dlabel(ev[0])+'. '+ev[3];
+      if(!reduce){evBox.classList.remove('swap');void evBox.offsetWidth;evBox.classList.add('swap')}
+    }
+    if(!timer) icon.innerHTML=day>=LAST?ICON_AGAIN:ICON_PLAY;
+  }
+  function stop(){
+    if(timer){clearTimeout(timer);timer=null}
+    icon.innerHTML=cur>=LAST?ICON_AGAIN:ICON_PLAY;
+    play.setAttribute('aria-label',cur>=LAST?'Replay the timeline':'Play the timeline');
+  }
+  function run(){
+    if(cur>=LAST) setDay(0);
+    icon.innerHTML=ICON_PAUSE;play.setAttribute('aria-label','Pause the timeline');
+    timer=setTimeout(function tick(){
+      if(cur>=LAST){stop();return}
+      setDay(cur+1);
+      var isEvent=EVENTS.some(function(ev){return dayOf(ev[0])===cur});
+      timer=setTimeout(tick,isEvent?1000:90);
+    },300);
+  }
+  play.addEventListener('click',function(){timer?stop():run()});
+  range.addEventListener('input',function(){stop();setDay(+range.value)});
+  setDay(0);
+  var autoPlayed=false;
+  new IntersectionObserver(function(es,o){
+    if(es[0].isIntersecting&&!autoPlayed){autoPlayed=true;o.disconnect();if(!reduce)setTimeout(function(){if(!timer&&cur===0)run()},400)}
+  },{threshold:.45}).observe($('.replay'));
+
+  /* charts */
+  var NS='http://www.w3.org/2000/svg';
+  function el(name,attrs,parent){var n=document.createElementNS(NS,name);for(var k in attrs)n.setAttribute(k,attrs[k]);if(parent)parent.appendChild(n);return n}
+  function nice(max){var p=Math.pow(10,Math.floor(Math.log10(max))),f=max/p;var n=f<=1?1:f<=2?2:f<=2.5?2.5:f<=5?5:10;return n*p}
+
+  function lineChart(box,cfg,animate){
+    box.innerHTML='';
+    var W=box.clientWidth,H=Math.max(240,Math.min(330,W*.5));
+    box.style.height=H+'px';
+    var m={t:30,r:Math.min(64,W*.12),b:30,l:46};
+    var svg=el('svg',{viewBox:'0 0 '+W+' '+H,'aria-hidden':'true'},box);
+    var pts=cfg.pts,x0=D(pts[0][0]),x1=D(pts[pts.length-1][0]);
+    var ymax=nice(Math.max.apply(null,pts.map(function(p){return p[1]}))*1.08);
+    function X(s){return m.l+(D(s)-x0)/(x1-x0)*(W-m.l-m.r)}
+    function Y(v){return H-m.b-(v/ymax)*(H-m.t-m.b)}
+    var g=el('g',{'class':'grid'},svg),ax=el('g',{'class':'axis'},svg);
+    for(var i=0;i<=4;i++){
+      var v=ymax*i/4,y=Y(v);
+      el('line',{x1:m.l,x2:W-m.r+8,y1:y,y2:y},g);
+      var tx=el('text',{x:m.l-10,y:y+4,'text-anchor':'end'},ax);tx.textContent=v>=1000?(v/1000)+'K':num(v);
+    }
+    var lastLbl=-99;
+    pts.forEach(function(p,i){
+      var x=X(p[0]);if(x-lastLbl<46&&i!==pts.length-1)return;lastLbl=x;
+      var tx=el('text',{x:x,y:H-m.b+20,'text-anchor':'middle'},ax);tx.textContent=dlabel(p[0]);
+    });
+    var d=pts.map(function(p,i){return (i?'L':'M')+X(p[0]).toFixed(1)+' '+Y(p[1]).toFixed(1)}).join(' ');
+    var area=el('path',{'class':'area',d:d+' L'+X(pts[pts.length-1][0])+' '+Y(0)+' L'+X(pts[0][0])+' '+Y(0)+' Z'},svg);
+    var guide=el('line',{'class':'guide',y1:m.t-10,y2:H-m.b,x1:0,x2:0},svg);
+    var path=el('path',{'class':'line',d:d},svg);
+    var circles=pts.map(function(p,i){return el('circle',{'class':'pt'+(i===pts.length-1?' on':''),cx:X(p[0]),cy:Y(p[1]),r:i===pts.length-1?5.5:4},svg)});
+    var first=pts[0],last=pts[pts.length-1];
+    var lf=el('text',{'class':'lbl',x:X(first[0]),y:Y(first[1])-12,'text-anchor':'start'},svg);lf.textContent=num(first[1]);
+    var ll=el('text',{'class':'lbl',x:X(last[0]),y:Y(last[1])-14,'text-anchor':'end'},svg);ll.textContent=num(last[1]);
+    if(cfg.annot){var a=pts[cfg.annot.i];var an=el('text',{'class':'note',x:X(a[0])-8,y:Y(a[1])-10,'text-anchor':'end'},svg);an.textContent=cfg.annot.text}
+    if(animate&&!reduce){
+      var L=path.getTotalLength();
+      path.style.strokeDasharray=L;path.style.strokeDashoffset=L;
+      area.style.opacity=0;circles.forEach(function(c){c.style.opacity=0});
+      path.getBoundingClientRect();
+      path.style.transition='stroke-dashoffset 1.3s cubic-bezier(.16,1,.3,1)';path.style.strokeDashoffset=0;
+      area.style.transition='opacity .8s ease .5s';area.style.opacity='';
+      circles.forEach(function(c,i){c.style.transition='opacity .4s ease '+(.3+i*.12)+'s';c.style.opacity=''});
+    }
+    var tip=document.createElement('div');tip.className='tip';box.appendChild(tip);
+    function show(i){
+      var p=pts[i];
+      circles.forEach(function(c,j){c.classList.toggle('on',j===i)});
+      guide.setAttribute('x1',X(p[0]));guide.setAttribute('x2',X(p[0]));guide.classList.add('on');
+      tip.innerHTML='<b>'+num(p[1])+'</b><span>'+dlabel(p[0])+(p[2]?', '+p[2]:'')+'</span>';
+      tip.style.left=Math.max(70,Math.min(W-70,X(p[0])))+'px';tip.style.top=Y(p[1])+'px';tip.classList.add('on');
+    }
+    function hide(){tip.classList.remove('on');guide.classList.remove('on');circles.forEach(function(c,j){c.classList.toggle('on',j===pts.length-1)})}
+    svg.addEventListener('pointermove',function(e){
+      var r=svg.getBoundingClientRect(),mx=(e.clientX-r.left)*(W/r.width),best=0,bd=1e9;
+      pts.forEach(function(p,i){var dd=Math.abs(X(p[0])-mx);if(dd<bd){bd=dd;best=i}});
+      show(best);
+    });
+    svg.addEventListener('pointerleave',hide);
+    box.setAttribute('aria-label',cfg.title+': '+pts.map(function(p){return dlabel(p[0])+' '+num(p[1])}).join(', ')+'.');
+  }
+
+  function barChart(box,bars,animate){
+    box.innerHTML='';
+    var W=box.clientWidth,H=Math.max(240,Math.min(330,W*.5));box.style.height=H+'px';
+    var m={t:30,r:10,b:30,l:46};
+    var svg=el('svg',{viewBox:'0 0 '+W+' '+H,'aria-hidden':'true'},box);
+    var ymax=nice(Math.max.apply(null,bars.map(function(b){return b[1]}))*1.1);
+    function Y(v){return H-m.b-(v/ymax)*(H-m.t-m.b)}
+    var g=el('g',{'class':'grid'},svg),ax=el('g',{'class':'axis'},svg);
+    for(var i=0;i<=4;i++){var v=ymax*i/4,y=Y(v);el('line',{x1:m.l,x2:W-m.r,y1:y,y2:y},g);var tx=el('text',{x:m.l-10,y:y+4,'text-anchor':'end'},ax);tx.textContent=num(v)}
+    var slot=(W-m.l-m.r)/bars.length,bw=Math.min(110,slot*.56);
+    var tip=document.createElement('div');tip.className='tip';
+    bars.forEach(function(b,i){
+      var cx=m.l+slot*i+slot/2,y=Y(b[1]),h=H-m.b-y;
+      var r=el('rect',{'class':'bar'+(b[2]?' hot':''),x:cx-bw/2,y:y,width:bw,height:h,rx:4},svg);
+      var lb=el('text',{'class':'lbl',x:cx,y:y-9,'text-anchor':'middle'},svg);lb.textContent=num(b[1]);
+      var xl=el('text',{x:cx,y:H-m.b+20,'text-anchor':'middle'},ax);xl.textContent=b[0];
+      r.addEventListener('pointerenter',function(){tip.innerHTML='<b>'+num(b[1])+' emails</b><span>'+b[3]+'</span>';tip.style.left=Math.max(110,Math.min(W-110,cx))+'px';tip.style.top=y+'px';tip.classList.add('on')});
+      r.addEventListener('pointerleave',function(){tip.classList.remove('on')});
+      if(animate&&!reduce){
+        r.style.transformBox='fill-box';r.style.transformOrigin='50% 100%';r.style.transform='scaleY(0)';lb.style.opacity=0;
+        r.getBoundingClientRect();
+        r.style.transition='transform 1s cubic-bezier(.16,1,.3,1) '+(i*.12)+'s, fill .25s';r.style.transform='';
+        lb.style.transition='opacity .4s ease '+(.5+i*.12)+'s';lb.style.opacity='';
+      }
+    });
+    box.appendChild(tip);
+  }
+
+  var LI={
+    followers:{title:'Followers',sub:'Company page, 28 Aug to 21 Oct 2026',foot:'Live count on 21 Oct, verified on the public page. 8 Oct is the 300-followers milestone post.',
+      pts:[['2026-08-28',91,'day 15'],['2026-09-25',180,'last weekly report'],['2026-10-08',300,'milestone post'],['2026-10-21',374,'live page']],annot:{i:2,text:'300 milestone'}},
+    impressions:{title:'Impressions, cumulative',sub:'28 Aug to 25 Sep 2026',foot:'About 2,200 new impressions every week. 12,843 by 25 Sep.',
+      pts:[['2026-08-28',3982,'day 15'],['2026-09-04',6167,'+2,185'],['2026-09-11',8330,'+2,163'],['2026-09-18',10362,'+2,032'],['2026-09-25',12843,'+2,481']]},
+    visitors:{title:'Page visitors, cumulative',sub:'28 Aug to 25 Sep 2026',foot:'Page visitors more than doubled in four weeks, 172 to 361.',
+      pts:[['2026-08-28',172,'day 15'],['2026-09-04',220],['2026-09-11',306],['2026-09-18',345],['2026-09-25',361]]}
+  };
+  var META={
+    interactions:{title:'Interactions, cumulative',sub:'31 Aug to 25 Sep 2026',foot:'171 to 1,420: 8.3x in four weeks.',
+      pts:[['2026-08-31',171],['2026-09-04',387,'Friday post at 1,101 views'],['2026-09-11',788,'first motion reel'],['2026-09-18',1151,'1,600 views across 3 reels'],['2026-09-25',1420,'carousel at 1,422 views']]},
+    visits:{title:'Page visits, 30-day window',sub:'7 Sep to 25 Sep 2026',foot:'30-day page visits went from 68 to 1,584 in under three weeks.',
+      pts:[['2026-09-07',68],['2026-09-11',1164],['2026-09-18',1326],['2026-09-25',1584]]}
+  };
+  var MAIL=[['7 to 11 Sep',374,false,'Steady weekly volume'],['14 to 18 Sep',374,false,'Steady weekly volume'],['21 to 25 Sep',605,true,'200-lead real estate list, about 3 touches each']];
+
+  function wireChart(segId,boxId,titleId,subId,footId,data,initial){
+    var box=document.getElementById(boxId),seg=document.getElementById(segId),key=initial,drawn=false;
+    function draw(anim){var c=data[key];$('#'+titleId).textContent=c.title;$('#'+subId).textContent=c.sub;$('#'+footId).textContent=c.foot;lineChart(box,c,anim)}
+    seg.addEventListener('click',function(e){
+      var b=e.target.closest('button');if(!b)return;key=b.dataset.k;
+      $$('button',seg).forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+      draw(true);
+    });
+    draw(false);
+    new IntersectionObserver(function(es,o){if(es[0].isIntersecting&&!drawn){drawn=true;draw(true);o.disconnect()}},{threshold:.35}).observe(box);
+    return function(){draw(false)};
+  }
+  var redrawLi=wireChart('liSeg','liChart','liTitle','liSub','liFoot',LI,'followers');
+  var redrawMeta=wireChart('metaSeg','metaChart','metaTitle','metaSub','metaFoot',META,'interactions');
+  var mailBox=$('#mailChart');
+  barChart(mailBox,MAIL,false);
+  new IntersectionObserver(function(es,o){if(es[0].isIntersecting){barChart(mailBox,MAIL,true);o.disconnect()}},{threshold:.35}).observe(mailBox);
+  var rt,lastW=innerWidth;
+  addEventListener('resize',function(){if(innerWidth===lastW)return;lastW=innerWidth;clearTimeout(rt);rt=setTimeout(function(){redrawLi();redrawMeta();barChart(mailBox,MAIL,false)},150)});
+
+  /* hashtag scramble */
+  var hash=$('#hash'),HT=hash.textContent,POOL='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',scrambling=false;
+  function scramble(){
+    if(reduce||scrambling)return;scrambling=true;
+    var frame=0,total=HT.length*2+10;
+    (function step(){
+      var out='';
+      for(var i=0;i<HT.length;i++){out+=(i<(frame-10)/2||HT[i]==='#')?HT[i]:POOL[(Math.random()*POOL.length)|0]}
+      hash.textContent=out;frame++;
+      if(frame<=total)setTimeout(step,28);else{hash.textContent=HT;scrambling=false}
+    })();
+  }
+  new IntersectionObserver(function(es,o){if(es[0].isIntersecting){scramble();o.disconnect()}},{threshold:.6}).observe(hash);
+  hash.addEventListener('pointerenter',scramble);
+
+  /* ALTO tiers: auto-cycle until someone picks one */
+  var tiers=$$('.tier'),steps=$$('#method li'),autoBar=$('#autoBar'),tierIdx=0,cycle=null,touched=false,stepTimers=[];
+  function pick(i){
+    tierIdx=i;
+    tiers.forEach(function(t,j){t.setAttribute('aria-pressed',j===i)});
+    stepTimers.forEach(clearTimeout);stepTimers=[];
+    steps.forEach(function(s){s.classList.remove('lit')});
+    if(reduce){steps.forEach(function(s){s.classList.add('lit')});return}
+    steps.forEach(function(s,j){stepTimers.push(setTimeout(function(){s.classList.add('lit')},120+j*140))});
+  }
+  function restartBar(){autoBar.classList.remove('run');void autoBar.offsetWidth;autoBar.classList.add('run')}
+  function startCycle(){
+    if(touched||reduce||cycle)return;
+    restartBar();
+    cycle=setInterval(function(){pick((tierIdx+1)%tiers.length);restartBar()},3200);
+  }
+  function stopCycle(){clearInterval(cycle);cycle=null;autoBar.classList.remove('run')}
+  tiers.forEach(function(t,i){t.addEventListener('click',function(){touched=true;stopCycle();autoBar.style.visibility='hidden';pick(i)})});
+  pick(0);
+  if(reduce)autoBar.style.visibility='hidden';
+  new IntersectionObserver(function(es){es[0].isIntersecting?startCycle():stopCycle()},{threshold:.4}).observe($('#alto'));
+
+  /* campaign filter */
+  var campSeg=$('#campSeg'),camps=$$('#camps li'),campCount=$('#campCount');
+  var NAMES={li:'LinkedIn',meta:'Meta',paid:'paid',auto:'automation'};
+  campSeg.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;var f=b.dataset.f,n=0,j=0;
+    $$('button',campSeg).forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    camps.forEach(function(c){
+      var ok=f==='all'||c.dataset.t.split(' ').indexOf(f)>-1;
+      c.hidden=!ok;c.classList.remove('pop');
+      if(ok){n++;if(!reduce){void c.offsetWidth;c.style.setProperty('--j',j++);c.classList.add('pop')}}
+    });
+    campCount.textContent=f==='all'?'Showing all 7 campaigns':'Showing '+n+' '+NAMES[f]+' campaign'+(n===1?'':'s');
+  });
+
+  /* career roles */
+  var ROLES=[
+    {co:'Karvel Consulting',meta:'SDR, 2024',pts:['About 150 dials and 8 meetings booked a day','300+ dials on target days','66% conversation-to-meeting rate','60% meeting show rate']},
+    {co:'AMBE Engineering',meta:'Business Development Associate, 2024',pts:['Built and worked an 11,000+ LinkedIn network','4 to 5% of conversations turned into meetings']},
+    {co:'Remotir Limited',meta:'Account Executive, 2025',pts:['About 80 dials and 1 to 2 meetings a day','Ran 2 accounts through the full sales cycle','Closed a $36K creative services deal: $3K a month for 12 months (client under NDA)']},
+    {co:'Anti Linear Technologies',meta:'Business Development Manager, 2026 to present',pts:['374 LinkedIn followers in ten weeks from the first post','12,800+ impressions in the first six weeks','ALTO: a four-tier productized offer','1,300+ cold emails in one month; 2 C-level meetings and 2 proposals by 25 Sep']}
+  ];
+  var roleBox=$('#role'),roleBtns=$$('#stages button');
+  function showRole(i,anim){
+    var r=ROLES[i];
+    roleBtns.forEach(function(b,j){b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1});
+    roleBox.innerHTML='<div><p class="role-co">'+r.co+'</p><p class="role-meta">'+r.meta+'</p></div><ul>'+r.pts.map(function(p,k){return '<li style="--k:'+k+'">'+p+'</li>'}).join('')+'</ul>';
+    roleBox.classList.remove('enter');
+    if(anim&&!reduce){void roleBox.offsetWidth;roleBox.classList.add('enter')}
+  }
+  roleBtns.forEach(function(b,i){
+    b.addEventListener('click',function(){showRole(i,true)});
+    b.addEventListener('keydown',function(e){
+      var d=e.key==='ArrowRight'||e.key==='ArrowDown'?1:e.key==='ArrowLeft'||e.key==='ArrowUp'?-1:0;
+      if(!d)return;e.preventDefault();var n=(i+d+roleBtns.length)%roleBtns.length;showRole(n,true);roleBtns[n].focus();
+    });
+  });
+  showRole(3,false);
+
+  /* copy email */
+  var cb=$('#copyEmail'),cl=$('#copyLbl');
+  cb.addEventListener('click',function(){
+    var addr='m.shaban.idreesi@gmail.com';
+    function done(){cl.textContent='Copied to clipboard';setTimeout(function(){cl.textContent='Email, click to copy'},2200)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(addr).then(done,function(){location.href='mailto:'+addr})}
+    else location.href='mailto:'+addr;
+  });
+})();
+</script>
+</body>
+</html>
